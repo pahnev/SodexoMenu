@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80DDA2FC881041DDB929FAE4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B893F7E9974DB6BAD5BDD0 /* libPods.a */; };
+		ED2521A7193B8769001E7AD4 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2521A6193B8769001E7AD4 /* City.m */; };
+		ED2521AA193B8772001E7AD4 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2521A9193B8772001E7AD4 /* Factory.m */; };
+		ED3D97BC1922896A00C3F60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BB1922896A00C3F60D /* Foundation.framework */; };
+		ED3D97BE1922896A00C3F60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */; };
+		ED3D97C01922896A00C3F60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BF1922896A00C3F60D /* UIKit.framework */; };
+		ED3D97C61922896A00C3F60D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97C41922896A00C3F60D /* InfoPlist.strings */; };
+		ED3D97C81922896A00C3F60D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97C71922896A00C3F60D /* main.m */; };
+		ED3D97CC1922896A00C3F60D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97CB1922896A00C3F60D /* AppDelegate.m */; };
+		ED3D97D81922896A00C3F60D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97D61922896A00C3F60D /* Main.storyboard */; };
+		ED3D97DA1922896A00C3F60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97D91922896A00C3F60D /* Images.xcassets */; };
+		ED3D97E11922896A00C3F60D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97E01922896A00C3F60D /* XCTest.framework */; };
+		ED3D97E21922896A00C3F60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BB1922896A00C3F60D /* Foundation.framework */; };
+		ED3D97E31922896A00C3F60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BF1922896A00C3F60D /* UIKit.framework */; };
+		ED3D97EB1922896A00C3F60D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97E91922896A00C3F60D /* InfoPlist.strings */; };
+		ED3D97ED1922896A00C3F60D /* SodexoMenuAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */; };
+		ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */; };
+		ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */; };
+		ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */; };
+		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
+		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
+		ED99EEE5193A1A5B0070E56F /* FeedItems.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EEE4193A1A5B0070E56F /* FeedItems.m */; };
+		EDDB60C219B24A1200F36F9C /* cityData.json in Resources */ = {isa = PBXBuildFile; fileRef = EDDB60C119B24A1200F36F9C /* cityData.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED3D97E41922896A00C3F60D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED3D97B01922896A00C3F60D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED3D97B71922896A00C3F60D;
+			remoteInfo = SodexoMenuApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C8B893F7E9974DB6BAD5BDD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2521A5193B8769001E7AD4 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		ED2521A6193B8769001E7AD4 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		ED2521A8193B8772001E7AD4 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		ED2521A9193B8772001E7AD4 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SodexoMenuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3D97BB1922896A00C3F60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		ED3D97BF1922896A00C3F60D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		ED3D97C31922896A00C3F60D /* SodexoMenuApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SodexoMenuApp-Info.plist"; sourceTree = "<group>"; };
+		ED3D97C51922896A00C3F60D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED3D97C71922896A00C3F60D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED3D97C91922896A00C3F60D /* SodexoMenuApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SodexoMenuApp-Prefix.pch"; sourceTree = "<group>"; };
+		ED3D97CA1922896A00C3F60D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED3D97CB1922896A00C3F60D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED3D97D71922896A00C3F60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED3D97D91922896A00C3F60D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ED3D97DF1922896A00C3F60D /* SodexoMenuAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SodexoMenuAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3D97E01922896A00C3F60D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ED3D97E81922896A00C3F60D /* SodexoMenuAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SodexoMenuAppTests-Info.plist"; sourceTree = "<group>"; };
+		ED3D97EA1922896A00C3F60D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SodexoMenuAppTests.m; sourceTree = "<group>"; };
+		ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantsTableViewController.h; sourceTree = "<group>"; };
+		ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
+		ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		ED99EED51939FDD60070E56F /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		ED99EED61939FDD60070E56F /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
+		ED99EED81939FF670070E56F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		ED99EEE3193A1A5B0070E56F /* FeedItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItems.h; sourceTree = "<group>"; };
+		ED99EEE4193A1A5B0070E56F /* FeedItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItems.m; sourceTree = "<group>"; };
+		EDDB60C119B24A1200F36F9C /* cityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityData.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED3D97B51922896A00C3F60D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */,
+				ED3D97BE1922896A00C3F60D /* CoreGraphics.framework in Frameworks */,
+				ED3D97C01922896A00C3F60D /* UIKit.framework in Frameworks */,
+				ED3D97BC1922896A00C3F60D /* Foundation.framework in Frameworks */,
+				80DDA2FC881041DDB929FAE4 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED3D97DC1922896A00C3F60D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED3D97E11922896A00C3F60D /* XCTest.framework in Frameworks */,
+				ED3D97E31922896A00C3F60D /* UIKit.framework in Frameworks */,
+				ED3D97E21922896A00C3F60D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED3D97AF1922896A00C3F60D = {
+			isa = PBXGroup;
+			children = (
+				ED3D97C11922896A00C3F60D /* SodexoMenuApp */,
+				ED3D97E61922896A00C3F60D /* SodexoMenuAppTests */,
+				ED3D97BA1922896A00C3F60D /* Frameworks */,
+				ED3D97B91922896A00C3F60D /* Products */,
+				909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		ED3D97B91922896A00C3F60D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */,
+				ED3D97DF1922896A00C3F60D /* SodexoMenuAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED3D97BA1922896A00C3F60D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */,
+				ED3D97BB1922896A00C3F60D /* Foundation.framework */,
+				ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */,
+				ED3D97BF1922896A00C3F60D /* UIKit.framework */,
+				ED3D97E01922896A00C3F60D /* XCTest.framework */,
+				C8B893F7E9974DB6BAD5BDD0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED3D97C11922896A00C3F60D /* SodexoMenuApp */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D97CA1922896A00C3F60D /* AppDelegate.h */,
+				ED3D97CB1922896A00C3F60D /* AppDelegate.m */,
+				ED3D97D61922896A00C3F60D /* Main.storyboard */,
+				EDDB60C119B24A1200F36F9C /* cityData.json */,
+				ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */,
+				ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */,
+				ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */,
+				ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */,
+				ED99EED81939FF670070E56F /* TableViewController.h */,
+				ED99EED91939FF670070E56F /* TableViewController.m */,
+				ED99EEE2193A14120070E56F /* Model */,
+				ED3D97D91922896A00C3F60D /* Images.xcassets */,
+				ED3D97C21922896A00C3F60D /* Supporting Files */,
+			);
+			path = SodexoMenuApp;
+			sourceTree = "<group>";
+		};
+		ED3D97C21922896A00C3F60D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D97C31922896A00C3F60D /* SodexoMenuApp-Info.plist */,
+				ED3D97C41922896A00C3F60D /* InfoPlist.strings */,
+				ED3D97C71922896A00C3F60D /* main.m */,
+				ED3D97C91922896A00C3F60D /* SodexoMenuApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED3D97E61922896A00C3F60D /* SodexoMenuAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */,
+				ED3D97E71922896A00C3F60D /* Supporting Files */,
+			);
+			path = SodexoMenuAppTests;
+			sourceTree = "<group>";
+		};
+		ED3D97E71922896A00C3F60D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D97E81922896A00C3F60D /* SodexoMenuAppTests-Info.plist */,
+				ED3D97E91922896A00C3F60D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED99EEE2193A14120070E56F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED99EED51939FDD60070E56F /* SessionManager.h */,
+				ED99EED61939FDD60070E56F /* SessionManager.m */,
+				ED2521A8193B8772001E7AD4 /* Factory.h */,
+				ED2521A9193B8772001E7AD4 /* Factory.m */,
+				ED2521A5193B8769001E7AD4 /* City.h */,
+				ED2521A6193B8769001E7AD4 /* City.m */,
+				ED99EEE3193A1A5B0070E56F /* FeedItems.h */,
+				ED99EEE4193A1A5B0070E56F /* FeedItems.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED3D97B71922896A00C3F60D /* SodexoMenuApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuApp" */;
+			buildPhases = (
+				4CA6D7BD1B014152A5EB7D84 /* Check Pods Manifest.lock */,
+				ED3D97B41922896A00C3F60D /* Sources */,
+				ED3D97B51922896A00C3F60D /* Frameworks */,
+				ED3D97B61922896A00C3F60D /* Resources */,
+				A2C768DF3B0E47D6A695F3CE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SodexoMenuApp;
+			productName = SodexoMenuApp;
+			productReference = ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED3D97DE1922896A00C3F60D /* SodexoMenuAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED3D97F31922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuAppTests" */;
+			buildPhases = (
+				ED3D97DB1922896A00C3F60D /* Sources */,
+				ED3D97DC1922896A00C3F60D /* Frameworks */,
+				ED3D97DD1922896A00C3F60D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED3D97E51922896A00C3F60D /* PBXTargetDependency */,
+			);
+			name = SodexoMenuAppTests;
+			productName = SodexoMenuAppTests;
+			productReference = ED3D97DF1922896A00C3F60D /* SodexoMenuAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED3D97B01922896A00C3F60D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Kirill Pahnev";
+				TargetAttributes = {
+					ED3D97DE1922896A00C3F60D = {
+						TestTargetID = ED3D97B71922896A00C3F60D;
+					};
+				};
+			};
+			buildConfigurationList = ED3D97B31922896A00C3F60D /* Build configuration list for PBXProject "SodexoMenuApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED3D97AF1922896A00C3F60D;
+			productRefGroup = ED3D97B91922896A00C3F60D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED3D97B71922896A00C3F60D /* SodexoMenuApp */,
+				ED3D97DE1922896A00C3F60D /* SodexoMenuAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED3D97B61922896A00C3F60D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDDB60C219B24A1200F36F9C /* cityData.json in Resources */,
+				ED3D97DA1922896A00C3F60D /* Images.xcassets in Resources */,
+				ED3D97C61922896A00C3F60D /* InfoPlist.strings in Resources */,
+				ED3D97D81922896A00C3F60D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED3D97DD1922896A00C3F60D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED3D97EB1922896A00C3F60D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CA6D7BD1B014152A5EB7D84 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C768DF3B0E47D6A695F3CE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED3D97B41922896A00C3F60D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED3D97CC1922896A00C3F60D /* AppDelegate.m in Sources */,
+				ED99EED71939FDD60070E56F /* SessionManager.m in Sources */,
+				ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */,
+				ED2521A7193B8769001E7AD4 /* City.m in Sources */,
+				ED3D97C81922896A00C3F60D /* main.m in Sources */,
+				ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */,
+				ED99EEE5193A1A5B0070E56F /* FeedItems.m in Sources */,
+				ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */,
+				ED2521AA193B8772001E7AD4 /* Factory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED3D97DB1922896A00C3F60D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED3D97ED1922896A00C3F60D /* SodexoMenuAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED3D97E51922896A00C3F60D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED3D97B71922896A00C3F60D /* SodexoMenuApp */;
+			targetProxy = ED3D97E41922896A00C3F60D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED3D97C41922896A00C3F60D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED3D97C51922896A00C3F60D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ED3D97D61922896A00C3F60D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED3D97D71922896A00C3F60D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED3D97E91922896A00C3F60D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED3D97EA1922896A00C3F60D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED3D97EE1922896A00C3F60D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ED3D97EF1922896A00C3F60D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED3D97F11922896A00C3F60D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
+				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ED3D97F21922896A00C3F60D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
+				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		ED3D97F41922896A00C3F60D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SodexoMenuApp.app/SodexoMenuApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SodexoMenuAppTests/SodexoMenuAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ED3D97F51922896A00C3F60D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SodexoMenuApp.app/SodexoMenuApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
+				INFOPLIST_FILE = "SodexoMenuAppTests/SodexoMenuAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED3D97B31922896A00C3F60D /* Build configuration list for PBXProject "SodexoMenuApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED3D97EE1922896A00C3F60D /* Debug */,
+				ED3D97EF1922896A00C3F60D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED3D97F11922896A00C3F60D /* Debug */,
+				ED3D97F21922896A00C3F60D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED3D97F31922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED3D97F41922896A00C3F60D /* Debug */,
+				ED3D97F51922896A00C3F60D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED3D97B01922896A00C3F60D /* Project object */;
+}
