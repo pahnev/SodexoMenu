@@ -11,7 +11,6 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 #import "Factory.h"
-#import "City.h"
 static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruokalistat/output/daily_json/";
 
 @interface TableViewController () {
@@ -20,99 +19,31 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
 @property(strong, nonatomic) NSArray *data;
 @property(strong, nonatomic) NSArray *locationName;
-
+@property(strong, nonatomic) NSString *date;
 @end
 
 @implementation TableViewController
-
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    self = [super initWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-	
-//	NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60
-//													  target:self
-//													selector:@selector(removeAllCachedResponses)
-//													userInfo:nil
-//													 repeats:NO];
-//	[timer fire];
-//	
-    NSString *date = [self currentDate];
-
-    SessionManager *sessionManager = [SessionManager sharedClient];
-
-    //AFHTTPResponseSerializer *HTTPResponseSerializer = [AFJSONResponseSerializer serializer];
-
-    // Initialize Request Operation Manager
-    //AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
-
-    // Configure Request Operation Manager
-    [sessionManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-    [sessionManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-	
-	
-    sessionManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-
-    //sessionManager.requestSerializer.timeoutInterval = 10;
-	
-	
-
-	
-	
-
-    self.url = _url;
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/en", self.url, date];
-    //Remember to delete
-
-    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    //aiView.hidesWhenStopped = NO; //I added this just so I could see it
-    self.navigationItem.titleView = aiView;
-    [aiView startAnimating];
-
-    // Send Request
-    [sessionManager GET:urlString
-        parameters:nil
-        success:^(NSURLSessionDataTask *task, id responseObject) {
-			
-	    // NSLog(@"Success, %@", responseObject);
-			[aiView stopAnimating];
-			self.navigationItem.titleView = nil;
-			self.data = [responseObject objectForKey:@"courses"];
-			self.title = responseObject[@"meta"][@"ref_title"];
-
-	    [self.tableView reloadData];
-			
-		}
-			
-        failure:^(NSURLSessionDataTask *task, NSError *error) {
-			NSString *errorString = [NSString stringWithFormat:@"%@",
-                                     [error localizedDescription]];
-			UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Oops! Something went wrong!"
-                                                         message:errorString
-                                                        delegate:nil
-                                               cancelButtonTitle:@"OK"
-                                               otherButtonTitles:nil];
-            [av show];
-			[aiView stopAnimating];
-        }];
+    self.date = [self currentDate];
 
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:16.0], NSFontAttributeName, nil];
 
     self.navigationController.navigationBar.titleTextAttributes = size;
+    //self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.date];
+	[self sessionManager];
+	
+	// Pull to refresh
+	UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+	[refresh addTarget:self
+				action:@selector(refreshView:)
+	  forControlEvents:UIControlEventValueChanged];
+	self.refreshControl = refresh;
 
-    //        [UIView setAnimationsEnabled:NO];
-    //		[UIView setAnimationsEnabled:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -149,6 +80,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     }
 
     // Configure the cell...
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *data = [self.data objectAtIndex:indexPath.row];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
     titleLabel.text = [data objectForKey:@"title_fi"];
@@ -167,21 +99,77 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     return cell;
 }
 
+#pragma mark - Network methods
+
+- (void)sessionManager
+{
+    SessionManager *sessionManager = [SessionManager sharedClient];
+
+    // Configure Request Operation Manager
+    [sessionManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    [sessionManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+
+    sessionManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+
+    self.url = _url;
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/en", self.url, self.date];
+    //Remember to delete
+
+    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.navigationItem.titleView = aiView;
+    [aiView startAnimating];
+
+    // Send Request
+    [sessionManager GET:urlString
+        parameters:nil
+        success:^(NSURLSessionDataTask *task, id responseObject) {
+					
+					// NSLog(@"Success, %@", responseObject);
+					[aiView stopAnimating];
+					self.navigationItem.titleView = nil;
+					self.data = [responseObject objectForKey:@"courses"];
+					self.title = responseObject[@"meta"][@"ref_title"];
+					
+					[self.tableView reloadData];
+        }
+        failure:^(NSURLSessionDataTask *task, NSError *error) {
+					NSString *errorString = [NSString stringWithFormat:@"%@",
+											 [error localizedDescription]];
+					UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Oops! Something went wrong!"
+																 message:errorString
+																delegate:nil
+													   cancelButtonTitle:@"OK"
+													   otherButtonTitles:nil];
+					[av show];
+					[aiView stopAnimating];
+        }];
+}
+
+#pragma mark - Helper methods
 - (NSString *)currentDate
 {
-    NSDate *currDate = [NSDate date];
+    NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    NSString *dateString = [dateFormatter stringFromDate:currentDate];
 
     return dateString;
 }
 
--(void)removeAllCachedResponses
-{
-	[[NSURLCache sharedURLCache] removeAllCachedResponses];
-	NSLog(@"Removing cache");
+-(void)refreshView:(UIRefreshControl *)refresh {
+	
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
+    [self sessionManager];
+    
+	[[self tableView] reloadData];
+    
+    [refresh endRefreshing];
 }
 
+- (void)removeAllCachedResponses
+{
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSLog(@"Removing cache");
+}
 
 @end

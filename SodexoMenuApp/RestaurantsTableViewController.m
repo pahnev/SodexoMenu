@@ -10,7 +10,7 @@
 #import "TableViewController.h"
 #import "Factory.h"
 
-@interface RestaurantsTableViewController ()
+@interface RestaurantsTableViewController () <UIViewControllerRestoration>
 @property(nonatomic, strong) NSDictionary *json;
 @property(nonatomic, strong) NSArray *cityArray;
 
@@ -86,6 +86,9 @@
 {
     [super viewDidLoad];
     [self loadData];
+	
+	self.restorationIdentifier = @"RestaurantsTableView";
+	self.restorationClass = [self class];
 
 	
 }
@@ -471,54 +474,25 @@
       destinationViewController.title = destinationViewController.restaurantName;
     }
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
++(UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    UIViewController * myViewController =
+	[[TableViewController alloc]
+	 initWithNibName:@"RestaurantsTableViewControllerViewController"
+	 bundle:nil];
+	
+    return myViewController;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+    [super encodeRestorableStateWithCoder:coder];
+			
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+}
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
+    [super decodeRestorableStateWithCoder:coder];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

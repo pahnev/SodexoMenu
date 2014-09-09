@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Factory : NSObject
-{
-	NSDictionary *cityJson;
+@interface Factory : NSObject {
+    NSDictionary *cityJson;
 }
-@property (nonatomic, retain) NSDictionary *cityJson;
+@property(nonatomic, retain) NSDictionary *cityJson;
 
-+(Factory *)cityJson;
-
++ (Factory *)cityJson;
 
 @end

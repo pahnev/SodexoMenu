@@ -13,15 +13,41 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    dispatch_async(dispatch_get_main_queue(), ^{
-		self.messageRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7200
-																	target:self
-																  selector:@selector(removeAllCachedResponses)
-																  userInfo:nil
-																   repeats:YES];
-		
-		[[NSRunLoop currentRunLoop] addTimer:_messageRefreshTimer forMode:NSRunLoopCommonModes];
-    });
+
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //		self.messageRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7200
+    //																	target:self
+    //																  selector:@selector(removeAllCachedResponses)
+    //																  userInfo:nil
+    //																   repeats:YES];
+    //
+    //		[[NSRunLoop currentRunLoop] addTimer:_messageRefreshTimer forMode:NSRunLoopCommonModes];
+    //    });
+
+    NSDate *dateCheck = [NSDate date];
+
+    NSDate *saveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastStartDate"];
+    if (!saveDate) {
+        // This is the 1st run of the app
+        saveDate = [NSDate date];
+
+        [[NSUserDefaults standardUserDefaults] setObject:saveDate forKey:@"lastStartDate"];
+    }
+    NSLog(@"First run was on: %@", saveDate);
+
+    NSInteger interval = [[[NSCalendar currentCalendar] components:NSDayCalendarUnit
+                                                          fromDate:saveDate
+                                                            toDate:dateCheck
+                                                           options:0] day];
+    if (interval < 0 || interval > 0) {
+        // Dates don't match lets remove cache and delete saveDate
+        [self removeAllCachedResponses];
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    } else {
+        // Dates are equal no need to do anything
+        NSLog(@"dates are same");
+    }
 
     return YES;
 }
@@ -56,7 +82,7 @@
 - (void)removeAllCachedResponses
 {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSLog(@"Removing cache");
+    //NSLog(@"Removing cache");
 }
 
 @end

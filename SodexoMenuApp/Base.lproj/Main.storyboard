@@ -49,8 +49,8 @@
         <!--Restaurants Table View Controller - Title-->
         <scene sceneID="lyV-7L-RhM">
             <objects>
-                <tableViewController id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xWC-LZ-0fV">
+                <tableViewController restorationIdentifier="RestaurantsTableView" id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="RestaurantsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xWC-LZ-0fV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,7 +90,7 @@
         <!--Table View Controller - Title-->
         <scene sceneID="nA7-ja-2sM">
             <objects>
-                <tableViewController id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="MenuDetailsView" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="rH8-gD-fgx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

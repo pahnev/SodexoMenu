@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		80DDA2FC881041DDB929FAE4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B893F7E9974DB6BAD5BDD0 /* libPods.a */; };
-		ED2521A7193B8769001E7AD4 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2521A6193B8769001E7AD4 /* City.m */; };
 		ED2521AA193B8772001E7AD4 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2521A9193B8772001E7AD4 /* Factory.m */; };
 		ED3D97BC1922896A00C3F60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BB1922896A00C3F60D /* Foundation.framework */; };
 		ED3D97BE1922896A00C3F60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */; };
@@ -28,7 +27,6 @@
 		ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */; };
 		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
 		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
-		ED99EEE5193A1A5B0070E56F /* FeedItems.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EEE4193A1A5B0070E56F /* FeedItems.m */; };
 		EDDB60C219B24A1200F36F9C /* cityData.json in Resources */ = {isa = PBXBuildFile; fileRef = EDDB60C119B24A1200F36F9C /* cityData.json */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +43,6 @@
 /* Begin PBXFileReference section */
 		909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C8B893F7E9974DB6BAD5BDD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED2521A5193B8769001E7AD4 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
-		ED2521A6193B8769001E7AD4 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		ED2521A8193B8772001E7AD4 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		ED2521A9193B8772001E7AD4 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SodexoMenuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,8 +71,6 @@
 		ED99EED61939FDD60070E56F /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		ED99EED81939FF670070E56F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		ED99EEE3193A1A5B0070E56F /* FeedItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItems.h; sourceTree = "<group>"; };
-		ED99EEE4193A1A5B0070E56F /* FeedItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItems.m; sourceTree = "<group>"; };
 		EDDB60C119B24A1200F36F9C /* cityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,10 +189,6 @@
 				ED99EED61939FDD60070E56F /* SessionManager.m */,
 				ED2521A8193B8772001E7AD4 /* Factory.h */,
 				ED2521A9193B8772001E7AD4 /* Factory.m */,
-				ED2521A5193B8769001E7AD4 /* City.h */,
-				ED2521A6193B8769001E7AD4 /* City.m */,
-				ED99EEE3193A1A5B0070E56F /* FeedItems.h */,
-				ED99EEE4193A1A5B0070E56F /* FeedItems.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -252,6 +242,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kirill Pahnev";
 				TargetAttributes = {
+					ED3D97B71922896A00C3F60D = {
+						DevelopmentTeam = WLNME8W96A;
+					};
 					ED3D97DE1922896A00C3F60D = {
 						TestTargetID = ED3D97B71922896A00C3F60D;
 					};
@@ -339,10 +332,8 @@
 				ED3D97CC1922896A00C3F60D /* AppDelegate.m in Sources */,
 				ED99EED71939FDD60070E56F /* SessionManager.m in Sources */,
 				ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */,
-				ED2521A7193B8769001E7AD4 /* City.m in Sources */,
 				ED3D97C81922896A00C3F60D /* main.m in Sources */,
 				ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */,
-				ED99EEE5193A1A5B0070E56F /* FeedItems.m in Sources */,
 				ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */,
 				ED2521AA193B8772001E7AD4 /* Factory.m in Sources */,
 			);
@@ -470,6 +461,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -479,6 +472,7 @@
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7cda929c-5e60-45f2-9306-9254397056b6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -489,6 +483,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -498,6 +494,7 @@
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7cda929c-5e60-45f2-9306-9254397056b6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

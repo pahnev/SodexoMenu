@@ -31,18 +31,10 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     Factory *shared = [Factory cityJson];
     self.cityJson = shared.cityJson;
-	
-	self.cityArray = [self.cityJson[@"cities"] allKeys];
-		
 
-
+    self.cityArray = [self.cityJson[@"cities"] allKeys];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,8 +62,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
     // Configure the cell...
-	
-	// First sort the array alphabetically and then put each string *city
+
+    // First sort the array alphabetically and then put each string *city
     NSString *city = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
 
     cell.textLabel.text = city;
@@ -79,24 +71,14 @@
     return cell;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if ([segue.identifier isEqualToString:@"showRestaurants"]) {
-		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-		RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
-		destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
-		destinationViewController.title = destinationViewController.cityName;
-	}
+    if ([segue.identifier isEqualToString:@"showRestaurants"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
+        destinationViewController.title = destinationViewController.cityName;
+    }
 }
-
-
-
-//#pragma mark - Navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"showSelectedCity"]) {
-//        TableViewController *viewController = (TableViewController *)segue.destinationViewController;
-//    }
-//}
 
 @end
