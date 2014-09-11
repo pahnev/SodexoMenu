@@ -27,6 +27,8 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.navigationController.navigationBar.translucent = NO;
+
 
     self.date = [self currentDate];
 
@@ -38,11 +40,15 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 	
 	// Pull to refresh
 	UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+	NSString *pullToRefresh = [NSString stringWithFormat:NSLocalizedString(@"Pull to refresh", nil)];
+	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:pullToRefresh];
 	[refresh addTarget:self
 				action:@selector(refreshView:)
 	  forControlEvents:UIControlEventValueChanged];
 	self.refreshControl = refresh;
+	
+	[self.navigationController.navigationBar
+	 setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
 }
 
@@ -83,7 +89,15 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *data = [self.data objectAtIndex:indexPath.row];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
-    titleLabel.text = [data objectForKey:@"title_fi"];
+    
+	
+	NSString *myLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+	if([myLanguage isEqualToString:@"fi"]){
+        titleLabel.text = [data objectForKey:@"title_fi"];
+    } else {
+        titleLabel.text = [data objectForKey:@"title_en"];
+    }
+
 
     UILabel *categoryNameLabel = (UILabel *)[cell viewWithTag:101];
     categoryNameLabel.text = [data objectForKey:@"category"];
@@ -112,7 +126,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     sessionManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
 
     self.url = _url;
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/en", self.url, self.date];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/fi", self.url, self.date];
     //Remember to delete
 
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -135,8 +149,8 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
         failure:^(NSURLSessionDataTask *task, NSError *error) {
 					NSString *errorString = [NSString stringWithFormat:@"%@",
 											 [error localizedDescription]];
-					UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Oops! Something went wrong!"
-																 message:errorString
+					UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no! Something went wrong!", nil)
+																 message:NSLocalizedString(errorString, nil)
 																delegate:nil
 													   cancelButtonTitle:@"OK"
 													   otherButtonTitles:nil];
@@ -166,10 +180,5 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     [refresh endRefreshing];
 }
 
-- (void)removeAllCachedResponses
-{
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSLog(@"Removing cache");
-}
 
 @end

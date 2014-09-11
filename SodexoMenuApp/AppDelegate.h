@@ -10,8 +10,6 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSTimer *messageRefreshTimer;
-@property (strong, nonatomic) NSDate *dateCheck;
+@property(strong, nonatomic) UIWindow *window;
 
 @end

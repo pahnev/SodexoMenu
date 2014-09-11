@@ -18,14 +18,11 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - PZSideMenuViewController (1.1.1)
 
 DEPENDENCIES:
   - AFNetworking
-  - PZSideMenuViewController
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
-  PZSideMenuViewController: b264c52ea3043d66c383dd36c04feaf9b455c71b
 
 COCOAPODS: 0.33.1

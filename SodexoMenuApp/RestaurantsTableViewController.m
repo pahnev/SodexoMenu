@@ -10,6 +10,7 @@
 #import "TableViewController.h"
 #import "Factory.h"
 
+
 @interface RestaurantsTableViewController () <UIViewControllerRestoration>
 @property(nonatomic, strong) NSDictionary *json;
 @property(nonatomic, strong) NSArray *cityArray;
@@ -73,19 +74,16 @@
     NSArray *varkausUrls;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self loadData];
+	self.navigationController.navigationBar.translucent = NO;
+
 	
 	self.restorationIdentifier = @"RestaurantsTableView";
 	self.restorationClass = [self class];

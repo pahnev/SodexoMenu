@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PZSideMenuViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>39432961762A4C6D953584E5</key>
+		<key>053EDD0DB6074B00871F8A6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7AD4BCC7921E4DA8861A1C78</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8A95D94031B8431E84819D3D</key>
+		<key>9DE3239F7BDF4412B1197D5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

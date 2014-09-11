@@ -12,42 +12,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-
-    //    dispatch_async(dispatch_get_main_queue(), ^{
-    //		self.messageRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:7200
-    //																	target:self
-    //																  selector:@selector(removeAllCachedResponses)
-    //																  userInfo:nil
-    //																   repeats:YES];
-    //
-    //		[[NSRunLoop currentRunLoop] addTimer:_messageRefreshTimer forMode:NSRunLoopCommonModes];
-    //    });
-
-    NSDate *dateCheck = [NSDate date];
-
-    NSDate *saveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastStartDate"];
-    if (!saveDate) {
-        // This is the 1st run of the app
-        saveDate = [NSDate date];
-
-        [[NSUserDefaults standardUserDefaults] setObject:saveDate forKey:@"lastStartDate"];
-    }
-    NSLog(@"First run was on: %@", saveDate);
-
-    NSInteger interval = [[[NSCalendar currentCalendar] components:NSDayCalendarUnit
-                                                          fromDate:saveDate
-                                                            toDate:dateCheck
-                                                           options:0] day];
-    if (interval < 0 || interval > 0) {
-        // Dates don't match lets remove cache and delete saveDate
-        [self removeAllCachedResponses];
-        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    } else {
-        // Dates are equal no need to do anything
-        NSLog(@"dates are same");
-    }
+    [self dateCheck];
+	
+//	if([self.navigationController.navigationBar respondsToSelector:@selector(barTintColor)])
+//	{
+//		// iOS7
+//		self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:236.0/255.0 green:139.0/255.0 blue:23.0/255.0 alpha:1.0];
+//	}
+//	else
+//	{
+//		// older
+//		self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:236.0/255.0 green:139.0/255.0 blue:23.0/255.0 alpha:1.0];
+//	}
 
     return YES;
 }
@@ -77,6 +53,37 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)dateCheck
+{
+    NSDate *dateCheck = [NSDate date];
+    //NSLog(@"datecheck: %@", dateCheck);
+
+    NSDate *saveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastStartDate"];
+    if (!saveDate) {
+        // This is the 1st run of the app
+        saveDate = [NSDate date];
+
+        [[NSUserDefaults standardUserDefaults] setObject:saveDate forKey:@"lastStartDate"];
+    }
+    //NSLog(@"First run was on: %@", saveDate);
+
+    NSInteger interval = [[[NSCalendar currentCalendar] components:NSCalendarUnitDay
+                                                          fromDate:saveDate
+                                                            toDate:dateCheck
+                                                           options:0] day];
+
+    if (interval < 0 || interval > 0) {
+        // Dates don't match lets remove cache and delete saveDate
+        [self removeAllCachedResponses];
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+        //NSLog(@"dates are different");
+    } else {
+        // Dates are equal no need to do anything
+        //NSLog(@"dates are same");
+    }
 }
 
 - (void)removeAllCachedResponses

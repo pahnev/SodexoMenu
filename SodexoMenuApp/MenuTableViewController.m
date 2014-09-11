@@ -11,6 +11,7 @@
 #import "Factory.h"
 
 @interface MenuTableViewController ()
+
 @property(nonatomic, strong) NSDictionary *cityJson;
 @property(nonatomic, strong) NSArray *cityArray;
 
@@ -30,6 +31,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // iOS 6.1 or earlier
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0];
+    } else {
+        // iOS 7.0 or later
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0];
+        self.navigationController.navigationBar.translucent = NO;
+    }
+	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+	[self.navigationController.navigationBar
+	 setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
     Factory *shared = [Factory cityJson];
     self.cityJson = shared.cityJson;

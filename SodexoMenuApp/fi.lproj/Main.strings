@@ -1,0 +1,27 @@
+
+/* Class = "IBUILabel"; text = "Price"; ObjectID = "8wF-4U-6xv"; */
+"8wF-4U-6xv.text" = "Price";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "H4A-u4-Vro"; */
+"H4A-u4-Vro.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "M5g-ij-pVa"; */
+"M5g-ij-pVa.title" = "Title";
+
+/* Class = "IBUILabel"; text = "Properties"; ObjectID = "QS4-dn-YPP"; */
+"QS4-dn-YPP.text" = "Properties";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "TfQ-P8-Qm1"; */
+"TfQ-P8-Qm1.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "Sodexo Menu"; ObjectID = "U1U-nF-S16"; */
+"U1U-nF-S16.title" = "Sodexo Ravintolat";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "WKG-04-RBy"; */
+"WKG-04-RBy.title" = "Title";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "bs8-z2-tqk"; */
+"bs8-z2-tqk.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "pe8-Iu-VTv"; */
+"pe8-Iu-VTv.text" = "Title";

@@ -24,6 +24,7 @@
 		ED3D97ED1922896A00C3F60D /* SodexoMenuAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */; };
 		ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */; };
 		ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */; };
+		ED5B075919C1311300D947C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED5B075B19C1311300D947C5 /* Localizable.strings */; };
 		ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */; };
 		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
 		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
@@ -65,6 +66,11 @@
 		ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantsTableViewController.h; sourceTree = "<group>"; };
 		ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
+		ED5B075619C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		ED5B075719C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED5B075819C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED5B075A19C1311300D947C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED5B075C19C1312800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		ED99EED51939FDD60070E56F /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */,
 				ED99EED81939FF670070E56F /* TableViewController.h */,
 				ED99EED91939FF670070E56F /* TableViewController.m */,
+				ED5B075B19C1311300D947C5 /* Localizable.strings */,
 				ED99EEE2193A14120070E56F /* Model */,
 				ED3D97D91922896A00C3F60D /* Images.xcassets */,
 				ED3D97C21922896A00C3F60D /* Supporting Files */,
@@ -203,6 +210,7 @@
 				4CA6D7BD1B014152A5EB7D84 /* Check Pods Manifest.lock */,
 				ED3D97B41922896A00C3F60D /* Sources */,
 				ED3D97B51922896A00C3F60D /* Frameworks */,
+				ED6FCEC919BFC1760013CFDA /* ShellScript */,
 				ED3D97B61922896A00C3F60D /* Resources */,
 				A2C768DF3B0E47D6A695F3CE /* Copy Pods Resources */,
 			);
@@ -257,6 +265,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = ED3D97AF1922896A00C3F60D;
 			productRefGroup = ED3D97B91922896A00C3F60D /* Products */;
@@ -274,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED5B075919C1311300D947C5 /* Localizable.strings in Resources */,
 				EDDB60C219B24A1200F36F9C /* cityData.json in Resources */,
 				ED3D97DA1922896A00C3F60D /* Images.xcassets in Resources */,
 				ED3D97C61922896A00C3F60D /* InfoPlist.strings in Resources */,
@@ -322,6 +332,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED6FCEC919BFC1760013CFDA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,6 +385,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ED3D97C51922896A00C3F60D /* en */,
+				ED5B075719C1300800D947C5 /* fi */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -370,6 +394,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ED3D97D71922896A00C3F60D /* Base */,
+				ED5B075619C1300800D947C5 /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -378,8 +403,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				ED3D97EA1922896A00C3F60D /* en */,
+				ED5B075819C1300800D947C5 /* fi */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ED5B075B19C1311300D947C5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED5B075A19C1311300D947C5 /* en */,
+				ED5B075C19C1312800D947C5 /* fi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -463,6 +498,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
+				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -472,7 +508,8 @@
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7cda929c-5e60-45f2-9306-9254397056b6";
+				PROVISIONING_PROFILE = "1d27a65f-668d-4067-97aa-a299dcdf5519";
+				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -485,6 +522,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
+				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -494,7 +532,8 @@
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7cda929c-5e60-45f2-9306-9254397056b6";
+				PROVISIONING_PROFILE = "1d27a65f-668d-4067-97aa-a299dcdf5519";
+				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
