@@ -27,8 +27,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.navigationController.navigationBar.translucent = NO;
-
 
     self.date = [self currentDate];
 
@@ -36,20 +34,18 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
     self.navigationController.navigationBar.titleTextAttributes = size;
     //self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.date];
-	[self sessionManager];
-	
-	// Pull to refresh
-	UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-	NSString *pullToRefresh = [NSString stringWithFormat:NSLocalizedString(@"Pull to refresh", nil)];
-	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:pullToRefresh];
-	[refresh addTarget:self
-				action:@selector(refreshView:)
-	  forControlEvents:UIControlEventValueChanged];
-	self.refreshControl = refresh;
-	
-	[self.navigationController.navigationBar
-	 setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self sessionManager];
 
+    // Pull to refresh
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] init];
+    [refresh addTarget:self
+                  action:@selector(refreshView:)
+        forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+
+    [self.navigationController.navigationBar
+        setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,15 +85,13 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *data = [self.data objectAtIndex:indexPath.row];
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
-    
-	
-	NSString *myLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
-	if([myLanguage isEqualToString:@"fi"]){
+
+    NSString *myLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([myLanguage isEqualToString:@"fi"]) {
         titleLabel.text = [data objectForKey:@"title_fi"];
     } else {
         titleLabel.text = [data objectForKey:@"title_en"];
     }
-
 
     UILabel *categoryNameLabel = (UILabel *)[cell viewWithTag:101];
     categoryNameLabel.text = [data objectForKey:@"category"];
@@ -127,7 +121,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
     self.url = _url;
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/fi", self.url, self.date];
-    //Remember to delete
 
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.titleView = aiView;
@@ -138,11 +131,24 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
         parameters:nil
         success:^(NSURLSessionDataTask *task, id responseObject) {
 					
-					// NSLog(@"Success, %@", responseObject);
+					//NSLog(@"Success, %@", responseObject);
 					[aiView stopAnimating];
 					self.navigationItem.titleView = nil;
-					self.data = [responseObject objectForKey:@"courses"];
-					self.title = responseObject[@"meta"][@"ref_title"];
+
+			// Check for empty data
+			if ([[responseObject objectForKey:@"courses"] count] == 0) {
+				UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
+															 message:NSLocalizedString(@"There is no menu today.", nil)
+															delegate:nil
+												   cancelButtonTitle:@"OK"
+												   otherButtonTitles:nil];
+				[av show];
+				self.title = @"";
+
+			} else {
+				self.data = [responseObject objectForKey:@"courses"];
+				self.title = responseObject[@"meta"][@"ref_title"];
+			}
 					
 					[self.tableView reloadData];
         }
@@ -170,15 +176,15 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     return dateString;
 }
 
--(void)refreshView:(UIRefreshControl *)refresh {
-	
+- (void)refreshView:(UIRefreshControl *)refresh
+{
+
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
     [self sessionManager];
-    
-	[[self tableView] reloadData];
-    
+
+    [[self tableView] reloadData];
+
     [refresh endRefreshing];
 }
-
 
 @end

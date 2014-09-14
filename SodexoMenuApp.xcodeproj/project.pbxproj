@@ -9,25 +9,23 @@
 /* Begin PBXBuildFile section */
 		80DDA2FC881041DDB929FAE4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B893F7E9974DB6BAD5BDD0 /* libPods.a */; };
 		ED2521AA193B8772001E7AD4 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2521A9193B8772001E7AD4 /* Factory.m */; };
+		ED38562419C4CCEC0087CAA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED38562619C4CCEC0087CAA1 /* Main.storyboard */; };
 		ED3D97BC1922896A00C3F60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BB1922896A00C3F60D /* Foundation.framework */; };
 		ED3D97BE1922896A00C3F60D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */; };
 		ED3D97C01922896A00C3F60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BF1922896A00C3F60D /* UIKit.framework */; };
-		ED3D97C61922896A00C3F60D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97C41922896A00C3F60D /* InfoPlist.strings */; };
 		ED3D97C81922896A00C3F60D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97C71922896A00C3F60D /* main.m */; };
 		ED3D97CC1922896A00C3F60D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97CB1922896A00C3F60D /* AppDelegate.m */; };
-		ED3D97D81922896A00C3F60D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97D61922896A00C3F60D /* Main.storyboard */; };
 		ED3D97DA1922896A00C3F60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97D91922896A00C3F60D /* Images.xcassets */; };
 		ED3D97E11922896A00C3F60D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97E01922896A00C3F60D /* XCTest.framework */; };
 		ED3D97E21922896A00C3F60D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BB1922896A00C3F60D /* Foundation.framework */; };
 		ED3D97E31922896A00C3F60D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3D97BF1922896A00C3F60D /* UIKit.framework */; };
-		ED3D97EB1922896A00C3F60D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3D97E91922896A00C3F60D /* InfoPlist.strings */; };
 		ED3D97ED1922896A00C3F60D /* SodexoMenuAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */; };
 		ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */; };
 		ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */; };
-		ED5B075919C1311300D947C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED5B075B19C1311300D947C5 /* Localizable.strings */; };
 		ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */; };
 		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
 		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
+		EDCB6B1F19C4D45F009D4699 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDCB6B2119C4D45F009D4699 /* Localizable.strings */; };
 		EDDB60C219B24A1200F36F9C /* cityData.json in Resources */ = {isa = PBXBuildFile; fileRef = EDDB60C119B24A1200F36F9C /* cityData.json */; };
 /* End PBXBuildFile section */
 
@@ -46,37 +44,34 @@
 		C8B893F7E9974DB6BAD5BDD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2521A8193B8772001E7AD4 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		ED2521A9193B8772001E7AD4 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		ED38562819C4CD4B0087CAA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SodexoMenuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3D97BB1922896A00C3F60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97BF1922896A00C3F60D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97C31922896A00C3F60D /* SodexoMenuApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SodexoMenuApp-Info.plist"; sourceTree = "<group>"; };
-		ED3D97C51922896A00C3F60D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED3D97C71922896A00C3F60D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED3D97C91922896A00C3F60D /* SodexoMenuApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SodexoMenuApp-Prefix.pch"; sourceTree = "<group>"; };
 		ED3D97CA1922896A00C3F60D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED3D97CB1922896A00C3F60D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ED3D97D71922896A00C3F60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED3D97D91922896A00C3F60D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED3D97DF1922896A00C3F60D /* SodexoMenuAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SodexoMenuAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3D97E01922896A00C3F60D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97E81922896A00C3F60D /* SodexoMenuAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SodexoMenuAppTests-Info.plist"; sourceTree = "<group>"; };
-		ED3D97EA1922896A00C3F60D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED3D97EC1922896A00C3F60D /* SodexoMenuAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SodexoMenuAppTests.m; sourceTree = "<group>"; };
 		ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantsTableViewController.h; sourceTree = "<group>"; };
 		ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
-		ED5B075619C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
-		ED5B075719C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ED5B075819C1300800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ED5B075A19C1311300D947C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED5B075C19C1312800D947C5 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		ED99EED51939FDD60070E56F /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
 		ED99EED61939FDD60070E56F /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		ED99EED81939FF670070E56F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		EDCB6B1A19C4D3E8009D4699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		EDCB6B1C19C4D428009D4699 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		EDCB6B2019C4D45F009D4699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDCB6B2219C4D465009D4699 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDDB60C119B24A1200F36F9C /* cityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +139,7 @@
 			children = (
 				ED3D97CA1922896A00C3F60D /* AppDelegate.h */,
 				ED3D97CB1922896A00C3F60D /* AppDelegate.m */,
-				ED3D97D61922896A00C3F60D /* Main.storyboard */,
+				ED38562619C4CCEC0087CAA1 /* Main.storyboard */,
 				EDDB60C119B24A1200F36F9C /* cityData.json */,
 				ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */,
 				ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */,
@@ -152,7 +147,6 @@
 				ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */,
 				ED99EED81939FF670070E56F /* TableViewController.h */,
 				ED99EED91939FF670070E56F /* TableViewController.m */,
-				ED5B075B19C1311300D947C5 /* Localizable.strings */,
 				ED99EEE2193A14120070E56F /* Model */,
 				ED3D97D91922896A00C3F60D /* Images.xcassets */,
 				ED3D97C21922896A00C3F60D /* Supporting Files */,
@@ -164,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				ED3D97C31922896A00C3F60D /* SodexoMenuApp-Info.plist */,
-				ED3D97C41922896A00C3F60D /* InfoPlist.strings */,
+				EDCB6B2119C4D45F009D4699 /* Localizable.strings */,
 				ED3D97C71922896A00C3F60D /* main.m */,
 				ED3D97C91922896A00C3F60D /* SodexoMenuApp-Prefix.pch */,
 			);
@@ -184,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				ED3D97E81922896A00C3F60D /* SodexoMenuAppTests-Info.plist */,
-				ED3D97E91922896A00C3F60D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,11 +276,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED5B075919C1311300D947C5 /* Localizable.strings in Resources */,
+				ED38562419C4CCEC0087CAA1 /* Main.storyboard in Resources */,
+				EDCB6B1F19C4D45F009D4699 /* Localizable.strings in Resources */,
 				EDDB60C219B24A1200F36F9C /* cityData.json in Resources */,
 				ED3D97DA1922896A00C3F60D /* Images.xcassets in Resources */,
-				ED3D97C61922896A00C3F60D /* InfoPlist.strings in Resources */,
-				ED3D97D81922896A00C3F60D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +287,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3D97EB1922896A00C3F60D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,40 +372,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED3D97C41922896A00C3F60D /* InfoPlist.strings */ = {
+		ED38562619C4CCEC0087CAA1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ED3D97C51922896A00C3F60D /* en */,
-				ED5B075719C1300800D947C5 /* fi */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		ED3D97D61922896A00C3F60D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED3D97D71922896A00C3F60D /* Base */,
-				ED5B075619C1300800D947C5 /* fi */,
+				ED38562819C4CD4B0087CAA1 /* Base */,
+				EDCB6B1A19C4D3E8009D4699 /* en */,
+				EDCB6B1C19C4D428009D4699 /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		ED3D97E91922896A00C3F60D /* InfoPlist.strings */ = {
+		EDCB6B2119C4D45F009D4699 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ED3D97EA1922896A00C3F60D /* en */,
-				ED5B075819C1300800D947C5 /* fi */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		ED5B075B19C1311300D947C5 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED5B075A19C1311300D947C5 /* en */,
-				ED5B075C19C1312800D947C5 /* fi */,
+				EDCB6B2019C4D45F009D4699 /* en */,
+				EDCB6B2219C4D465009D4699 /* fi */,
 			);
 			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

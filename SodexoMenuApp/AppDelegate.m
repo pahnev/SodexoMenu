@@ -13,17 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self dateCheck];
-	
-//	if([self.navigationController.navigationBar respondsToSelector:@selector(barTintColor)])
-//	{
-//		// iOS7
-//		self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:236.0/255.0 green:139.0/255.0 blue:23.0/255.0 alpha:1.0];
-//	}
-//	else
-//	{
-//		// older
-//		self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:236.0/255.0 green:139.0/255.0 blue:23.0/255.0 alpha:1.0];
-//	}
+	[self customizeUserInterface];
 
     return YES;
 }
@@ -53,6 +43,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Helper methods
+
+-(void)customizeUserInterface
+{
+	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
+	[[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	// iOS 6.1 or earlier
+	if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+		[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
+    }
+	
 }
 
 - (void)dateCheck

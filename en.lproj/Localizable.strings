@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  SodexoMenuApp
+
+  Created by Kirill Pahnev on 13.9.2014.
+  Copyright (c) 2014 Kirill Pahnev. All rights reserved.
+*/
+"There is no menu today." = "There is no menu today.";
+
+"Oh no!" = "Oh no!";
+
+"Oh no! Something went wrong!" = "Oh no! Something went wrong!";

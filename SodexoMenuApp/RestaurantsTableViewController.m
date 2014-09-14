@@ -82,9 +82,7 @@
 {
     [super viewDidLoad];
     [self loadData];
-	self.navigationController.navigationBar.translucent = NO;
 
-	
 	self.restorationIdentifier = @"RestaurantsTableView";
 	self.restorationClass = [self class];
 
