@@ -5,8 +5,14 @@
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "H4A-u4-Vro"; */
 "H4A-u4-Vro.text" = "Title";
 
+/* Class = "IBUINavigationItem"; title = "About Sodexo Menu"; ObjectID = "M53-YL-dca"; */
+"M53-YL-dca.title" = "About Sodexo Menu";
+
 /* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "M5g-ij-pVa"; */
 "M5g-ij-pVa.title" = "Title";
+
+/* Class = "IBUITextView"; text = "Gluten-free\nLactose-free\nMilk-free\nLow-lactose"; ObjectID = "QPu-Vs-G93"; */
+"QPu-Vs-G93.text" = "Gluten-free\nLactose-free\nMilk-free\nLow-lactose";
 
 /* Class = "IBUILabel"; text = "Properties"; ObjectID = "QS4-dn-YPP"; */
 "QS4-dn-YPP.text" = "Properties";
@@ -20,8 +26,14 @@
 /* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "WKG-04-RBy"; */
 "WKG-04-RBy.title" = "Title";
 
+/* Class = "IBUITextView"; text = "G\nL\nM\nVL"; ObjectID = "XEh-M1-93r"; */
+"XEh-M1-93r.text" = "G\nL\nM\nVL";
+
 /* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "bs8-z2-tqk"; */
 "bs8-z2-tqk.text" = "Subtitle";
+
+/* Class = "IBUITextView"; text = "If Sodexo closes a restaurant or opens a new one, you can tell us about it by sending a message to kirill.pahnev@gmail.com and the app will be updated asap.\n\n"; ObjectID = "d5Z-q1-xF7"; */
+"d5Z-q1-xF7.text" = "If Sodexo closes a restaurant or opens a new one, you can tell us about it by sending a message to kirill.pahnev@gmail.com and the app will be updated asap.\n\n";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "pe8-Iu-VTv"; */
 "pe8-Iu-VTv.text" = "Title";

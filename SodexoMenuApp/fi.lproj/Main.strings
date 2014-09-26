@@ -5,8 +5,14 @@
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "H4A-u4-Vro"; */
 "H4A-u4-Vro.text" = "Title";
 
+/* Class = "IBUINavigationItem"; title = "Sodexo Menu info"; ObjectID = "M53-YL-dca"; */
+"M53-YL-dca.title" = "Sodexo Menu info";
+
 /* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "M5g-ij-pVa"; */
 "M5g-ij-pVa.title" = "Title";
+
+/* Class = "IBUITextView"; text = "Gluteeniton\nLaktoositon\nMaidoton\nVähälaktoosinen"; ObjectID = "QPu-Vs-G93"; */
+"QPu-Vs-G93.text" = "Gluteeniton\nLaktoositon\nMaidoton\nVähälaktoosinen";
 
 /* Class = "IBUILabel"; text = "Properties"; ObjectID = "QS4-dn-YPP"; */
 "QS4-dn-YPP.text" = "Properties";
@@ -14,14 +20,20 @@
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "TfQ-P8-Qm1"; */
 "TfQ-P8-Qm1.text" = "Title";
 
-/* Class = "IBUINavigationItem"; title = "Sodexo Menu"; ObjectID = "U1U-nF-S16"; */
-"U1U-nF-S16.title" = "Sodexo Ruokalista";
+/* Class = "IBUINavigationItem"; title = "Sodexo ruokalista"; ObjectID = "U1U-nF-S16"; */
+"U1U-nF-S16.title" = "Sodexo ruokalista";
 
 /* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "WKG-04-RBy"; */
 "WKG-04-RBy.title" = "Title";
 
+/* Class = "IBUITextView"; text = "G\nL\nM\nVL"; ObjectID = "XEh-M1-93r"; */
+"XEh-M1-93r.text" = "G\nL\nM\nVL";
+
 /* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "bs8-z2-tqk"; */
 "bs8-z2-tqk.text" = "Subtitle";
+
+/* Class = "IBUITextView"; text = "Mikäli Sodexo sulkee jonkin ravintolan tai avaa uuden, voit lähettää siitä viestin osoitteeseen kirill.pahnev@gmail.com ja tieto päivitetään pikimmisten.\n\n"; ObjectID = "d5Z-q1-xF7"; */
+"d5Z-q1-xF7.text" = "Mikäli Sodexo sulkee jonkin ravintolan tai avaa uuden, voit lähettää siitä viestin osoitteeseen kirill.pahnev@gmail.com ja tieto päivitetään pikimmisten.\n\n";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "pe8-Iu-VTv"; */
 "pe8-Iu-VTv.text" = "Title";

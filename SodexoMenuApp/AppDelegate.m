@@ -7,13 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "TableViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+
     [self dateCheck];
-	[self customizeUserInterface];
+    [self customizeUserInterface];
 
     return YES;
 }
@@ -47,16 +51,15 @@
 
 #pragma mark - Helper methods
 
--(void)customizeUserInterface
+- (void)customizeUserInterface
 {
-	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
-	[[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
-	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-	// iOS 6.1 or earlier
-	if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-		[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    // iOS 6.1 or earlier
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
     }
-	
 }
 
 - (void)dateCheck
@@ -80,7 +83,7 @@
 
     if (interval < 0 || interval > 0) {
         // Dates don't match lets remove cache and delete saveDate
-        [self removeAllCachedResponses];
+        [self removeMenuCache];
         NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
         //NSLog(@"dates are different");
@@ -90,9 +93,13 @@
     }
 }
 
-- (void)removeAllCachedResponses
+- (void)removeMenuCache
 {
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    TableViewController *tableViewController = [[TableViewController alloc] init];
+
+    [[NSURLCache sharedURLCache] removeCachedResponseForDataTask:tableViewController.task];
+
+    //[[NSURLCache sharedURLCache] removeAllCachedResponses];
     //NSLog(@"Removing cache");
 }
 

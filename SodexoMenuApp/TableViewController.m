@@ -20,6 +20,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 @property(strong, nonatomic) NSArray *data;
 @property(strong, nonatomic) NSArray *locationName;
 @property(strong, nonatomic) NSString *date;
+
 @end
 
 @implementation TableViewController
@@ -27,9 +28,10 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
 
     self.date = [self currentDate];
-
+    //self.date = @"2014/09/18";
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:16.0], NSFontAttributeName, nil];
 
     self.navigationController.navigationBar.titleTextAttributes = size;
@@ -38,7 +40,8 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
     // Pull to refresh
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] init];
+    NSString *pullToRefresh = [NSString stringWithFormat:NSLocalizedString(@"Pull to refresh", nil)];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:pullToRefresh];
     [refresh addTarget:self
                   action:@selector(refreshView:)
         forControlEvents:UIControlEventValueChanged];
@@ -87,10 +90,14 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
 
     NSString *myLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([myLanguage isEqualToString:@"fi"]) {
-        titleLabel.text = [data objectForKey:@"title_fi"];
-    } else {
+    if ([myLanguage isEqualToString:@"en"]) {
         titleLabel.text = [data objectForKey:@"title_en"];
+        if ([data objectForKey:@"title_en"] == 0) {
+            titleLabel.text = [data objectForKey:@"title_fi"];
+        }
+
+    } else {
+        titleLabel.text = [data objectForKey:@"title_fi"];
     }
 
     UILabel *categoryNameLabel = (UILabel *)[cell viewWithTag:101];
@@ -121,6 +128,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
     self.url = _url;
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/fi", self.url, self.date];
+    //Remember to delete
 
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.titleView = aiView;
@@ -130,25 +138,13 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     [sessionManager GET:urlString
         parameters:nil
         success:^(NSURLSessionDataTask *task, id responseObject) {
-					
-					//NSLog(@"Success, %@", responseObject);
+					self.task = task;
+
+					// NSLog(@"Success, %@", responseObject);
 					[aiView stopAnimating];
 					self.navigationItem.titleView = nil;
-
-			// Check for empty data
-			if ([[responseObject objectForKey:@"courses"] count] == 0) {
-				UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
-															 message:NSLocalizedString(@"There is no menu today.", nil)
-															delegate:nil
-												   cancelButtonTitle:@"OK"
-												   otherButtonTitles:nil];
-				[av show];
-				self.title = @"";
-
-			} else {
-				self.data = [responseObject objectForKey:@"courses"];
-				self.title = responseObject[@"meta"][@"ref_title"];
-			}
+					self.data = [responseObject objectForKey:@"courses"];
+					self.title = responseObject[@"meta"][@"ref_title"];
 					
 					[self.tableView reloadData];
         }
@@ -178,7 +174,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
 - (void)refreshView:(UIRefreshControl *)refresh
 {
-
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
     [self sessionManager];
 
@@ -187,4 +182,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     [refresh endRefreshing];
 }
 
+- (IBAction)infoButton:(id)sender
+{
+}
 @end

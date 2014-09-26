@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cgD-On-0Wy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cgD-On-0Wy">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Menu Table View Controller - Sodexo Menu-->
+        <!--Sodexo Menu-->
         <scene sceneID="uhw-tr-0Q9">
             <objects>
                 <tableViewController storyboardIdentifier="ListViewControllerID" id="ALC-jX-YjR" customClass="MenuTableViewController" sceneMemberID="viewController">
@@ -44,9 +45,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kv2-nT-uTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-270"/>
+            <point key="canvasLocation" x="1037" y="-285"/>
         </scene>
-        <!--Restaurants Table View Controller - Title-->
+        <!--Title-->
         <scene sceneID="lyV-7L-RhM">
             <objects>
                 <tableViewController restorationIdentifier="RestaurantsTableView" id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
@@ -85,9 +86,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvY-ZY-I9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="-265"/>
+            <point key="canvasLocation" x="1403" y="-285"/>
         </scene>
-        <!--Table View Controller - Title-->
+        <!--Title-->
         <scene sceneID="nA7-ja-2sM">
             <objects>
                 <tableViewController restorationIdentifier="MenuDetailsView" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
@@ -103,35 +104,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="H4A-u4-Vro">
-                                            <rect key="frame" x="9" y="0.0" width="246" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="H4A-u4-Vro">
+                                            <rect key="frame" x="9" y="4" width="246" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="bs8-z2-tqk">
-                                            <rect key="frame" x="9" y="17" width="230" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46" translatesAutoresizingMaskIntoConstraints="NO" id="8wF-4U-6xv">
-                                            <rect key="frame" x="263" y="-12" width="46" height="79"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,00 €" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="57" translatesAutoresizingMaskIntoConstraints="NO" id="8wF-4U-6xv">
+                                            <rect key="frame" x="255" y="-1" width="57" height="58"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="57" id="Pqa-zK-Qhp"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Properties" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="QS4-dn-YPP">
-                                            <rect key="frame" x="9" y="35" width="206" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Properties" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="QS4-dn-YPP">
+                                            <rect key="frame" x="9" y="35" width="246" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="17" id="FV9-fl-fFh"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.2655752592404097" green="0.84459918478260865" blue="0.27053336185189336" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="bs8-z2-tqk">
+                                            <rect key="frame" x="9" y="21" width="246" height="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8wF-4U-6xv" firstAttribute="leading" secondItem="bs8-z2-tqk" secondAttribute="trailing" id="F88-xu-cyO"/>
+                                        <constraint firstItem="8wF-4U-6xv" firstAttribute="centerY" secondItem="TEa-q8-ATs" secondAttribute="centerY" id="MDr-gz-mUl"/>
+                                        <constraint firstItem="bs8-z2-tqk" firstAttribute="top" secondItem="TEa-q8-ATs" secondAttribute="topMargin" constant="13" id="MFP-yO-iz6"/>
+                                        <constraint firstItem="H4A-u4-Vro" firstAttribute="leading" secondItem="TEa-q8-ATs" secondAttribute="leadingMargin" constant="1" id="S40-je-GDR"/>
+                                        <constraint firstItem="QS4-dn-YPP" firstAttribute="leading" secondItem="bs8-z2-tqk" secondAttribute="leading" id="Y2T-LH-yIy"/>
+                                        <constraint firstItem="H4A-u4-Vro" firstAttribute="top" secondItem="TEa-q8-ATs" secondAttribute="topMargin" constant="-4" id="YZJ-e5-h8X"/>
+                                        <constraint firstItem="QS4-dn-YPP" firstAttribute="trailing" secondItem="bs8-z2-tqk" secondAttribute="trailing" id="bJj-nT-ouF"/>
+                                        <constraint firstItem="bs8-z2-tqk" firstAttribute="trailing" secondItem="H4A-u4-Vro" secondAttribute="trailing" id="gCG-WT-qgt"/>
+                                        <constraint firstItem="8wF-4U-6xv" firstAttribute="trailing" secondItem="TEa-q8-ATs" secondAttribute="trailingMargin" id="nMH-2m-4LF"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QS4-dn-YPP" secondAttribute="bottom" constant="-4" id="rZk-im-UBz"/>
+                                        <constraint firstItem="8wF-4U-6xv" firstAttribute="top" secondItem="TEa-q8-ATs" secondAttribute="topMargin" constant="-9" id="t6B-zi-57B"/>
+                                        <constraint firstItem="bs8-z2-tqk" firstAttribute="leading" secondItem="H4A-u4-Vro" secondAttribute="leading" id="wOw-X0-9le"/>
+                                        <constraint firstItem="QS4-dn-YPP" firstAttribute="top" secondItem="H4A-u4-Vro" secondAttribute="bottom" constant="10" id="zhi-39-Svq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -139,11 +158,81 @@
                             <outlet property="delegate" destination="BcG-7q-MpR" id="8X2-WF-Neb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="M5g-ij-pVa"/>
+                    <navigationItem key="navigationItem" title="Title" id="M5g-ij-pVa">
+                        <barButtonItem key="rightBarButtonItem" id="oT8-IV-VUF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RNt-fU-jDl">
+                                <rect key="frame" x="233" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rtf-bf-vls" kind="push" id="2l4-wJ-72l"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="infoButton:" destination="BcG-7q-MpR" id="eOM-bW-FDH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trQ-NU-Teo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="-270"/>
+            <point key="canvasLocation" x="1791" y="-290"/>
+        </scene>
+        <!--About Sodexo Menu-->
+        <scene sceneID="2YS-fW-8la">
+            <objects>
+                <viewController id="rtf-bf-vls" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UDQ-Xu-TEG"/>
+                        <viewControllerLayoutGuide type="bottom" id="iOv-BZ-6bz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dhO-VQ-rpm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-M1-93r">
+                                <rect key="frame" x="16" y="8" width="47" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">G
+L
+M
+VL</string>
+                                <color key="textColor" red="0.26557525920000002" green="0.84459918479999996" blue="0.27053336189999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPu-Vs-G93">
+                                <rect key="frame" x="71" y="8" width="240" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Gluten-free
+Lactose-free
+Milk-free
+Low-lactose</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-q1-xF7">
+                                <rect key="frame" x="16" y="171" width="288" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">If Sodexo closes a restaurant or opens a new one, you can tell us about it by sending a message to kirill.pahnev@gmail.com and the app will be updated asap.
+
+</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About Sodexo Menu" id="M53-YL-dca"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-3T-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="-285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mP9-Uy-Bg2">
@@ -163,7 +252,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwn-in-5dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="-270"/>
+            <point key="canvasLocation" x="667" y="-285"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

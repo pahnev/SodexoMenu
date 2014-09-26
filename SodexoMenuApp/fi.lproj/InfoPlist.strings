@@ -1,9 +1,3 @@
 /* Localized versions of Info.plist keys */
 
-"Sodexo Menu" = "Sodexo Ravintolat";
-
-"Pull to refresh" = "Päivitä";
-
-"Oh no! Something went wrong!" = "Voi ei! Jokin meni vikaan!";
-
-"There is no menu for today!" = "Tänään ei ole ruokalistaa.";
+"CFBundleDisplayName" = "Sodexo ruokalista";

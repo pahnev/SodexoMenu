@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPSessionManager.h"
 
-@interface Factory : NSObject {
+@interface Factory : AFHTTPSessionManager{
     NSDictionary *cityJson;
 }
 @property(nonatomic, retain) NSDictionary *cityJson;

@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+
     Factory *shared = [Factory cityJson];
     self.cityJson = shared.cityJson;
 

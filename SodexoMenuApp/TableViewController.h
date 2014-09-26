@@ -15,6 +15,7 @@
 @property(strong, nonatomic) NSArray *url;
 @property(strong, nonatomic) NSString *restaurantName;
 
-@property(nonatomic, strong) NSDate *topSongsCacheDate;
+@property(strong, nonatomic) NSURLSessionDataTask *task;
 
+- (IBAction)infoButton:(id)sender;
 @end
