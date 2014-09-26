@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuTableViewController : UITableViewController
+- (IBAction)infoButton:(id)sender;
 
 @end

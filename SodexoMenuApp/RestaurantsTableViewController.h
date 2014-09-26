@@ -11,5 +11,6 @@
 @interface RestaurantsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *cityName;
+- (IBAction)infoButton:(id)sender;
 
 @end
