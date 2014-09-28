@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED3D97B71922896A00C3F60D"
-               BuildableName = "Sodexo Menu.app"
-               BlueprintName = "Sodexo Menu"
+               BuildableName = "SodexoMenuApp.app"
+               BlueprintName = "SodexoMenuApp"
                ReferencedContainer = "container:SodexoMenuApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3D97B71922896A00C3F60D"
-            BuildableName = "Sodexo Menu.app"
-            BlueprintName = "Sodexo Menu"
+            BuildableName = "SodexoMenuApp.app"
+            BlueprintName = "SodexoMenuApp"
             ReferencedContainer = "container:SodexoMenuApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3D97B71922896A00C3F60D"
-            BuildableName = "Sodexo Menu.app"
-            BlueprintName = "Sodexo Menu"
+            BuildableName = "SodexoMenuApp.app"
+            BlueprintName = "SodexoMenuApp"
             ReferencedContainer = "container:SodexoMenuApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED3D97B71922896A00C3F60D"
-            BuildableName = "Sodexo Menu.app"
-            BlueprintName = "Sodexo Menu"
+            BuildableName = "SodexoMenuApp.app"
+            BlueprintName = "SodexoMenuApp"
             ReferencedContainer = "container:SodexoMenuApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

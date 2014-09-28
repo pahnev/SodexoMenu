@@ -44,7 +44,7 @@
 		C8B893F7E9974DB6BAD5BDD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2521A8193B8772001E7AD4 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		ED2521A9193B8772001E7AD4 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
-		ED3D97B81922896A00C3F60D /* Sodexo Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sodexo Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SodexoMenuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3D97BB1922896A00C3F60D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		ED3D97BF1922896A00C3F60D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -61,6 +61,7 @@
 		ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantsTableViewController.h; sourceTree = "<group>"; };
 		ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
+		ED70518019D5044A00B5CEAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		ED95BE1419D4974300051B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -116,7 +117,7 @@
 		ED3D97B91922896A00C3F60D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED3D97B81922896A00C3F60D /* Sodexo Menu.app */,
+				ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */,
 				ED3D97DF1922896A00C3F60D /* SodexoMenuAppTests.xctest */,
 			);
 			name = Products;
@@ -197,9 +198,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ED3D97B71922896A00C3F60D /* Sodexo Menu */ = {
+		ED3D97B71922896A00C3F60D /* SodexoMenuApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "Sodexo Menu" */;
+			buildConfigurationList = ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuApp" */;
 			buildPhases = (
 				4CA6D7BD1B014152A5EB7D84 /* Check Pods Manifest.lock */,
 				ED3D97B41922896A00C3F60D /* Sources */,
@@ -212,9 +213,9 @@
 			);
 			dependencies = (
 			);
-			name = "Sodexo Menu";
+			name = SodexoMenuApp;
 			productName = SodexoMenuApp;
-			productReference = ED3D97B81922896A00C3F60D /* Sodexo Menu.app */;
+			productReference = ED3D97B81922896A00C3F60D /* SodexoMenuApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED3D97DE1922896A00C3F60D /* SodexoMenuAppTests */ = {
@@ -266,7 +267,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ED3D97B71922896A00C3F60D /* Sodexo Menu */,
+				ED3D97B71922896A00C3F60D /* SodexoMenuApp */,
 				ED3D97DE1922896A00C3F60D /* SodexoMenuAppTests */,
 			);
 		};
@@ -367,7 +368,7 @@
 /* Begin PBXTargetDependency section */
 		ED3D97E51922896A00C3F60D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ED3D97B71922896A00C3F60D /* Sodexo Menu */;
+			target = ED3D97B71922896A00C3F60D /* SodexoMenuApp */;
 			targetProxy = ED3D97E41922896A00C3F60D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -397,6 +398,7 @@
 			children = (
 				ED95BE1B19D49A4500051B81 /* en */,
 				ED95BE1D19D49A4F00051B81 /* fi */,
+				ED70518019D5044A00B5CEAF /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -574,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "Sodexo Menu" */ = {
+		ED3D97F01922896A00C3F60D /* Build configuration list for PBXNativeTarget "SodexoMenuApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED3D97F11922896A00C3F60D /* Debug */,

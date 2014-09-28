@@ -38,15 +38,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     //self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.date];
     [self sessionManager];
 
-    // Pull to refresh
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    NSString *pullToRefresh = [NSString stringWithFormat:NSLocalizedString(@"Pull to refresh", nil)];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:pullToRefresh];
-    [refresh addTarget:self
-                  action:@selector(refreshView:)
-        forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-
     [self.navigationController.navigationBar
         setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
@@ -138,13 +129,25 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     [sessionManager GET:urlString
         parameters:nil
         success:^(NSURLSessionDataTask *task, id responseObject) {
-					self.task = task;
-
-					// NSLog(@"Success, %@", responseObject);
+					
+					//NSLog(@"Success, %@", responseObject);
 					[aiView stopAnimating];
 					self.navigationItem.titleView = nil;
-					self.data = [responseObject objectForKey:@"courses"];
-					self.title = responseObject[@"meta"][@"ref_title"];
+					
+					// Check for empty data
+					if ([[responseObject objectForKey:@"courses"] count] == 0) {
+						UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
+																	 message:NSLocalizedString(@"There is no menu today.", nil)
+																	delegate:nil
+														   cancelButtonTitle:@"OK"
+														   otherButtonTitles:nil];
+						[av show];
+						self.title = @"";
+						
+					} else {
+						self.data = [responseObject objectForKey:@"courses"];
+						self.title = responseObject[@"meta"][@"ref_title"];
+					}
 					
 					[self.tableView reloadData];
         }
@@ -170,16 +173,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
     NSString *dateString = [dateFormatter stringFromDate:currentDate];
 
     return dateString;
-}
-
-- (void)refreshView:(UIRefreshControl *)refresh
-{
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
-    [self sessionManager];
-
-    [[self tableView] reloadData];
-
-    [refresh endRefreshing];
 }
 
 - (IBAction)infoButton:(id)sender

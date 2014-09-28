@@ -32,10 +32,10 @@
 {
     [super viewDidLoad];
 
-    Factory *shared = [Factory cityJson];
-    self.cityJson = shared.cityJson;
-
-    self.cityArray = [self.cityJson[@"cities"] allKeys];
+    [self factoryLoad];
+    if (![self.cityArray count] == 0) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,6 +82,24 @@
     }
 }
 
-- (IBAction)infoButton:(id)sender {
+- (IBAction)infoButton:(id)sender
+{
 }
+
+- (IBAction)refreshButton:(id)sender
+{
+    [self factoryLoad];
+
+    [[self tableView] reloadData];
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+- (void)factoryLoad
+{
+    Factory *shared = [Factory cityJson];
+    self.cityJson = shared.cityJson;
+
+    self.cityArray = [self.cityJson[@"cities"] allKeys];
+}
+
 @end

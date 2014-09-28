@@ -42,6 +42,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sodexo Menu" id="U1U-nF-S16">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="roT-ol-HMc">
+                            <connections>
+                                <action selector="refreshButton:" destination="ALC-jX-YjR" id="jjd-vv-1md"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="DJ2-wm-qml">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="sMN-Wu-4CP">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>
@@ -62,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kv2-nT-uTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008" y="60"/>
+            <point key="canvasLocation" x="1062" y="-285"/>
         </scene>
         <!--Title-->
         <scene sceneID="lyV-7L-RhM">
@@ -119,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvY-ZY-I9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="149"/>
+            <point key="canvasLocation" x="1425" y="-285"/>
         </scene>
         <!--Title-->
         <scene sceneID="nA7-ja-2sM">
@@ -294,6 +299,6 @@ Low-lactose</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Sjt-aR-Guj"/>
+        <segue reference="cVv-fa-8b2"/>
     </inferredMetricsTieBreakers>
 </document>

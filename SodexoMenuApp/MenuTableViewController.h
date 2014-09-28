@@ -10,5 +10,6 @@
 
 @interface MenuTableViewController : UITableViewController
 - (IBAction)infoButton:(id)sender;
+- (IBAction)refreshButton:(id)sender;
 
 @end
