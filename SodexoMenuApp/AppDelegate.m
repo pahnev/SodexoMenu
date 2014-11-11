@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "TableViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation AppDelegate
 
@@ -18,6 +21,8 @@
 
     [self dateCheck];
     [self customizeUserInterface];
+    [Fabric with:@[CrashlyticsKit]];
+
 
     return YES;
 }
@@ -56,6 +61,7 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
     // iOS 6.1 or earlier
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
@@ -97,6 +103,11 @@
 {
     TableViewController *tableViewController = [[TableViewController alloc] init];
 
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+    
+        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+
+    }
     [[NSURLCache sharedURLCache] removeCachedResponseForDataTask:tableViewController.task];
 
     //[[NSURLCache sharedURLCache] removeAllCachedResponses];
