@@ -27,8 +27,8 @@
 		ED95BE1A19D49A4500051B81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED95BE1C19D49A4500051B81 /* InfoPlist.strings */; };
 		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
 		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
-		EDD6C86C1A12D4830047C2D9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C86A1A12D4830047C2D9 /* Crashlytics.framework */; };
-		EDD6C86D1A12D4830047C2D9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C86B1A12D4830047C2D9 /* Fabric.framework */; };
+		EDD6C8741A12D6C40047C2D9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */; };
+		EDD6C8751A12D6C40047C2D9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C8731A12D6C40047C2D9 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +77,8 @@
 		ED99EED61939FDD60070E56F /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		ED99EED81939FF670070E56F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		EDD6C86A1A12D4830047C2D9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		EDD6C86B1A12D4830047C2D9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		EDD6C8731A12D6C40047C2D9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD6C86D1A12D4830047C2D9 /* Fabric.framework in Frameworks */,
+				EDD6C8751A12D6C40047C2D9 /* Fabric.framework in Frameworks */,
 				ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */,
 				ED3D97BE1922896A00C3F60D /* CoreGraphics.framework in Frameworks */,
 				ED3D97C01922896A00C3F60D /* UIKit.framework in Frameworks */,
 				ED3D97BC1922896A00C3F60D /* Foundation.framework in Frameworks */,
-				EDD6C86C1A12D4830047C2D9 /* Crashlytics.framework in Frameworks */,
+				EDD6C8741A12D6C40047C2D9 /* Crashlytics.framework in Frameworks */,
 				80DDA2FC881041DDB929FAE4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +112,8 @@
 		ED3D97AF1922896A00C3F60D = {
 			isa = PBXGroup;
 			children = (
+				EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */,
+				EDD6C8731A12D6C40047C2D9 /* Fabric.framework */,
 				ED3D97C11922896A00C3F60D /* SodexoMenuApp */,
 				ED3D97E61922896A00C3F60D /* SodexoMenuAppTests */,
 				ED3D97BA1922896A00C3F60D /* Frameworks */,
@@ -132,8 +134,6 @@
 		ED3D97BA1922896A00C3F60D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EDD6C86A1A12D4830047C2D9 /* Crashlytics.framework */,
-				EDD6C86B1A12D4830047C2D9 /* Fabric.framework */,
 				ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */,
 				ED3D97BB1922896A00C3F60D /* Foundation.framework */,
 				ED3D97BD1922896A00C3F60D /* CoreGraphics.framework */,
