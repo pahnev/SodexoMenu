@@ -21,7 +21,7 @@
     shared = [[Factory alloc] init];
 
     NSHTTPURLResponse *response = nil;
-    NSString *jsonUrlString = [NSString stringWithFormat:@"http://pahnev.netii.net/cityData.json"];
+    NSString *jsonUrlString = [NSString stringWithFormat:@"https://raw.githubusercontent.com/pahnev/SodexoMenu/master/SodexoMenuApp/cityData.json"];
     NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error = nil;
 
