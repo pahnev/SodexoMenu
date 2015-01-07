@@ -7,10 +7,6 @@
 //
 
 #import "TableViewController.h"
-#import "MenuTableViewController.h"
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
-
-#import "Factory.h"
 static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruokalistat/output/daily_json/";
 
 @interface TableViewController () {
@@ -20,6 +16,7 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 @property(strong, nonatomic) NSArray *data;
 @property(strong, nonatomic) NSArray *locationName;
 @property(strong, nonatomic) NSString *date;
+@property(nonatomic, retain) NSDateFormatter *formatter;
 
 @end
 
@@ -36,15 +33,10 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
     self.navigationController.navigationBar.titleTextAttributes = size;
     //self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.date];
-    [self sessionManager];
+    [self downloadMenu];
 
     [self.navigationController.navigationBar
         setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,76 +98,70 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 }
 
 #pragma mark - Network methods
-
-- (void)sessionManager
+- (void)downloadMenu
 {
-    SessionManager *sessionManager = [SessionManager sharedClient];
-
-    // Configure Request Operation Manager
-    [sessionManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-    [sessionManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-
-    sessionManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-
     self.url = _url;
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/fi", self.url, self.date];
-    //Remember to delete
-
+    NSString *baseURL = [NSString stringWithFormat:@"http://www.sodexo.fi/ruokalistat/output/daily_json/%@/%@/fi", self.url, self.date];
+    NSLog(@"url %@", baseURL);
+    AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
+    
+    __weak AFHTTPRequestOperationManager *weakManager = manager;
+    weakManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
+    
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.titleView = aiView;
     [aiView startAnimating];
 
-    // Send Request
-    [sessionManager GET:urlString
-        parameters:nil
-        success:^(NSURLSessionDataTask *task, id responseObject) {
-					
-					//NSLog(@"Success, %@", responseObject);
-					[aiView stopAnimating];
-					self.navigationItem.titleView = nil;
-					
-					// Check for empty data
-					if ([[responseObject objectForKey:@"courses"] count] == 0) {
-						UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
-																	 message:NSLocalizedString(@"There is no menu today.", nil)
-																	delegate:nil
-														   cancelButtonTitle:@"OK"
-														   otherButtonTitles:nil];
-						[av show];
-						self.title = @"";
-						
-					} else {
-						self.data = [responseObject objectForKey:@"courses"];
-						self.title = responseObject[@"meta"][@"ref_title"];
-					}
-					
-					[self.tableView reloadData];
+    [manager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.navigationItem.titleView = nil;
+        [aiView stopAnimating];
+
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            
+            if ([[responseObject objectForKey:@"courses"] count] == 0) {
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
+                                                             message:NSLocalizedString(@"There is no menu today.", nil)
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+                [av show];
+                
+            } else {
+                self.data = [responseObject objectForKey:@"courses"];
+                self.title = responseObject[@"meta"][@"ref_title"];
+            }
+            
+            [self.tableView reloadData];
         }
-        failure:^(NSURLSessionDataTask *task, NSError *error) {
-					NSString *errorString = [NSString stringWithFormat:@"%@",
-											 [error localizedDescription]];
-					UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no! Something went wrong!", nil)
-																 message:NSLocalizedString(errorString, nil)
-																delegate:nil
-													   cancelButtonTitle:@"OK"
-													   otherButtonTitles:nil];
-					[av show];
-					[aiView stopAnimating];
-        }];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        NSString *errorString = [NSString stringWithFormat:@"%@", [error localizedDescription]];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no! Something went wrong!", nil)
+                                                     message:NSLocalizedString(errorString, nil)
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+
+        [aiView stopAnimating];
+
+    }];
 }
 
 #pragma mark - Helper methods
 - (NSString *)currentDate
 {
     NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *dateString = [dateFormatter stringFromDate:currentDate];
+    self.formatter = [[DFDateFormatterFactory sharedFactory] dateFormatterWithFormat:@"YYYY/MM/dd"];
+
+    NSString *dateString = [self.formatter stringFromDate:currentDate];
+
 
     return dateString;
 }
 
-- (IBAction)infoButton:(id)sender
-{
-}
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewController.h"
+#import "Factory.h"
 
 @interface RestaurantsTableViewController : UITableViewController
 
+@property(nonatomic, strong) NSDictionary *json;
+@property(nonatomic, strong) NSArray *cityArray;
+
 @property (strong, nonatomic) NSString *cityName;
-- (IBAction)infoButton:(id)sender;
 
 @end

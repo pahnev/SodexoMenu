@@ -11,43 +11,75 @@
 
 @implementation Factory
 
-@synthesize cityJson;
-
-+ (Factory *)cityJson
++ (Factory *) sharedInstance
 {
-    static Factory *shared = nil;
-    //    static dispatch_once_t onceToken;
-    //    dispatch_once(&onceToken, ^{
-    shared = [[Factory alloc] init];
+    static Factory *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+    return _sharedInstance;
+    
+}
 
-    NSHTTPURLResponse *response = nil;
-    NSString *jsonUrlString = [NSString stringWithFormat:@"https://raw.githubusercontent.com/pahnev/SodexoMenu/master/SodexoMenuApp/cityData.json"];
-    NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSError *error = nil;
+-(void)fetchDataInBackgroundWithCompletionHandler: (void(^)(BOOL success, NSDictionary *data, NSError *error)) block
+{
+    NSString * baseURL = @"https://raw.githubusercontent.com/pahnev/SodexoMenu/master/SodexoMenuApp/cityData.json";
+    AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
+    
+    __weak AFHTTPRequestOperationManager *weakManager = manager;
+//    weakManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    weakManager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
 
-    //-- Get request and response though URL
-    NSURLRequest *request = [NSURLRequest requestWithURL:url
-                                             cachePolicy:NSURLRequestReturnCacheDataElseLoad
-                                         timeoutInterval:10.0];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    if (error) {
-        NSString *errorString = [NSString stringWithFormat:@"%@",
-                                                           [error localizedDescription]];
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no! Something went wrong!", nil)
-                                                     message:NSLocalizedString(errorString, nil)
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [av show];
+    NSOperationQueue *operationQueue = manager.operationQueue;
+    [weakManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status ==  AFNetworkReachabilityStatusReachableViaWWAN || status == AFNetworkReachabilityStatusReachableViaWiFi) {
+            NSLog(@"internet!");
+            [weakManager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
+            [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
 
-    } else {
-        //-- JSON Parsing
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-        //NSLog(@"Result = %@",result);
-        shared.cityJson = result;
-    }
-
-    return shared;
+            [operationQueue setSuspended:NO];
+            
+            [manager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+                    
+                    block(YES, responseObject, nil);
+                    
+                }
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) { // invalid request.
+                NSLog(@"%@", error.localizedDescription);
+                block(YES, nil, error);
+            }];
+            
+            
+        } else if (status == AFNetworkReachabilityStatusNotReachable) {
+            NSLog(@"no internet");
+            [weakManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+            [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
+            [operationQueue setSuspended:YES];
+            
+        }
+        
+    }];
+    
+    [weakManager.reachabilityManager startMonitoring];
+    [manager.reachabilityManager startMonitoring];
+    
+    
+    [weakManager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            
+            block(YES, responseObject, nil);
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) { // invalid request.
+        NSLog(@"%@", error.localizedDescription);
+        block(YES, nil, error);
+    }];
+    
 }
 
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "MenuTableViewController.h"
-#import "RestaurantsTableViewController.h"
-#import "Factory.h"
 
 @interface MenuTableViewController ()
 
@@ -19,23 +17,17 @@
 
 @implementation MenuTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
 
     [self factoryLoad];
     if (![self.cityArray count] == 0) {
         self.navigationItem.leftBarButtonItem = nil;
+
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,27 +71,28 @@
         RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
         destinationViewController.title = destinationViewController.cityName;
+        destinationViewController.json = self.cityJson;
     }
-}
-
-- (IBAction)infoButton:(id)sender
-{
-}
-
-- (IBAction)refreshButton:(id)sender
-{
-    [self factoryLoad];
-
-    [[self tableView] reloadData];
-    self.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)factoryLoad
 {
-    Factory *shared = [Factory cityJson];
-    self.cityJson = shared.cityJson;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    self.cityArray = [self.cityJson[@"cities"] allKeys];
+    [[Factory sharedInstance] fetchDataInBackgroundWithCompletionHandler:^(BOOL success, NSDictionary *data, NSError *error) {
+        if (error) {
+            NSLog(@"error");
+            self.cityJson = [userDefaults objectForKey:@"cityJson"];
+        } else {
+            self.cityJson = data;
+            [userDefaults setObject:self.cityJson forKey:@"cityJson"];
+            [userDefaults synchronize];
+        }
+        self.cityArray = [self.cityJson[@"cities"] allKeys];
+        [self.tableView reloadData];
+
+    }];
+
 }
 
 @end

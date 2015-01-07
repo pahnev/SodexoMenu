@@ -101,17 +101,18 @@
 
 - (void)removeMenuCache
 {
-    TableViewController *tableViewController = [[TableViewController alloc] init];
+//    TableViewController *tableViewController = [[TableViewController alloc] init];
+//
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//    
+//        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+//
+//    }
+//    [[NSURLCache sharedURLCache] removeCachedResponseForDataTask:tableViewController.task];
 
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-    
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-
-    }
-    [[NSURLCache sharedURLCache] removeCachedResponseForDataTask:tableViewController.task];
-
-    //[[NSURLCache sharedURLCache] removeAllCachedResponses];
-    //NSLog(@"Removing cache");
+    // Let's just remove all cache, who cares
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSLog(@"Removing cache");
 }
 
 @end

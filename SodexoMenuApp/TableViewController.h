@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SessionManager.h"
+#import "AFNetworking.h"
+#import "MenuTableViewController.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "DFDateFormatterFactory.h"
+#import "Factory.h"
 
 @interface TableViewController : UITableViewController
 
@@ -16,6 +21,6 @@
 @property(strong, nonatomic) NSString *restaurantName;
 
 @property(strong, nonatomic) NSURLSessionDataTask *task;
+@property(nonatomic)AFHTTPRequestOperation *operation;
 
-- (IBAction)infoButton:(id)sender;
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cgD-On-0Wy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cgD-On-0Wy">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -42,11 +42,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sodexo Menu" id="U1U-nF-S16">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="roT-ol-HMc">
-                            <connections>
-                                <action selector="refreshButton:" destination="ALC-jX-YjR" id="jjd-vv-1md"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="DJ2-wm-qml">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="sMN-Wu-4CP">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>
@@ -55,7 +50,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="infoButton:" destination="ALC-jX-YjR" eventType="touchUpInside" id="OvY-LO-ffy"/>
                                     <segue destination="rtf-bf-vls" kind="push" id="cVv-fa-8b2"/>
                                 </connections>
                             </button>
@@ -69,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="1062" y="-285"/>
         </scene>
-        <!--Title-->
+        <!--Restaurants Table View Controller-->
         <scene sceneID="lyV-7L-RhM">
             <objects>
                 <tableViewController restorationIdentifier="RestaurantsTableView" id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
@@ -104,7 +98,7 @@
                             <outlet property="delegate" destination="Qid-6T-p89" id="mrw-V1-7WM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="WKG-04-RBy">
+                    <navigationItem key="navigationItem" id="WKG-04-RBy">
                         <barButtonItem key="rightBarButtonItem" id="eqU-9A-UXe">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="s82-tf-U2H">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>
@@ -126,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1425" y="-285"/>
         </scene>
-        <!--Title-->
+        <!--Table View Controller-->
         <scene sceneID="nA7-ja-2sM">
             <objects>
                 <tableViewController restorationIdentifier="MenuDetailsView" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
@@ -196,7 +190,7 @@
                             <outlet property="delegate" destination="BcG-7q-MpR" id="8X2-WF-Neb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="M5g-ij-pVa">
+                    <navigationItem key="navigationItem" id="M5g-ij-pVa">
                         <barButtonItem key="rightBarButtonItem" id="oT8-IV-VUF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RNt-fU-jDl">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>

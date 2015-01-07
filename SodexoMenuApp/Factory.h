@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
 
-@interface Factory : AFHTTPSessionManager{
-    NSDictionary *cityJson;
-}
-@property(nonatomic, retain) NSDictionary *cityJson;
+@interface Factory : AFHTTPSessionManager
 
-+ (Factory *)cityJson;
++ (Factory *)sharedInstance;
+
+- (void)fetchDataInBackgroundWithCompletionHandler:(void (^)(BOOL success, NSDictionary *data, NSError *error))block;
 
 @end

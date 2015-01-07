@@ -7,13 +7,8 @@
 //
 
 #import "RestaurantsTableViewController.h"
-#import "TableViewController.h"
-#import "Factory.h"
-
 
 @interface RestaurantsTableViewController () <UIViewControllerRestoration>
-@property(nonatomic, strong) NSDictionary *json;
-@property(nonatomic, strong) NSArray *cityArray;
 
 @end
 
@@ -264,8 +259,6 @@
 
 - (void)loadData
 {
-    Factory *shared = [Factory cityJson];
-    self.json = shared.cityJson;
     self.cityArray = self.json[@"cities"];
 
     NSArray *espooArray = [self.json[@"cities"] valueForKey:@"Espoo"];
@@ -482,15 +475,10 @@
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super encodeRestorableStateWithCoder:coder];
-			
-
 }
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super decodeRestorableStateWithCoder:coder];
 }
 
-
-- (IBAction)infoButton:(id)sender {
-}
 @end
