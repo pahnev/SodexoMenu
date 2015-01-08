@@ -44,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		504210A78CC638CD10614728 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C8B893F7E9974DB6BAD5BDD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0335A51A5D8FF800193A65 /* DFDateFormatterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFDateFormatterFactory.h; sourceTree = "<group>"; };
 		ED0335A61A5D8FF800193A65 /* DFDateFormatterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFDateFormatterFactory.m; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		EDD6C8731A12D6C40047C2D9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FE312748A8EBEDF424D07419 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D3410C83AC665FD8F78D3FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE312748A8EBEDF424D07419 /* Pods.debug.xcconfig */,
+				504210A78CC638CD10614728 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ED0335A41A5D8FF800193A65 /* DFDateFormatterFactory-master */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +142,7 @@
 				ED3D97E61922896A00C3F60D /* SodexoMenuAppTests */,
 				ED3D97BA1922896A00C3F60D /* Frameworks */,
 				ED3D97B91922896A00C3F60D /* Products */,
-				909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */,
+				1D3410C83AC665FD8F78D3FD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				ED3D97CA1922896A00C3F60D /* AppDelegate.h */,
-				ED0335A41A5D8FF800193A65 /* DFDateFormatterFactory-master */,
 				ED3D97CB1922896A00C3F60D /* AppDelegate.m */,
 				ED95BE0F19D4964300051B81 /* Main.storyboard */,
 				ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */,
@@ -186,6 +195,7 @@
 				ED95BE1C19D49A4500051B81 /* InfoPlist.strings */,
 				ED3D97C31922896A00C3F60D /* SodexoMenuApp-Info.plist */,
 				ED3D97C71922896A00C3F60D /* main.m */,
+				ED0335A41A5D8FF800193A65 /* DFDateFormatterFactory-master */,
 				ED3D97C91922896A00C3F60D /* SodexoMenuApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -348,7 +358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED6FCEC919BFC1760013CFDA /* ShellScript */ = {
@@ -518,7 +528,7 @@
 		};
 		ED3D97F11922896A00C3F60D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */;
+			baseConfigurationReference = FE312748A8EBEDF424D07419 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -533,7 +543,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "";
@@ -543,7 +553,7 @@
 		};
 		ED3D97F21922896A00C3F60D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 909F9BDB0F8B4B47BD641246 /* Pods.xcconfig */;
+			baseConfigurationReference = 504210A78CC638CD10614728 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -558,7 +568,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SodexoMenuApp/SodexoMenuApp-Prefix.pch";
 				INFOPLIST_FILE = "SodexoMenuApp/SodexoMenuApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "";

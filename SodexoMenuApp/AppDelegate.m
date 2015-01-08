@@ -59,7 +59,7 @@
 - (void)customizeUserInterface
 {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:102.0 / 255.0 green:153.0 / 255.0 blue:204.0 / 255.0 alpha:1.0]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
     // iOS 6.1 or earlier
@@ -113,6 +113,16 @@
     // Let's just remove all cache, who cares
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSLog(@"Removing cache");
+}
+#pragma mark - State restoration
+-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
 }
 
 @end

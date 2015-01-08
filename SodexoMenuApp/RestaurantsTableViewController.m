@@ -7,6 +7,8 @@
 //
 
 #import "RestaurantsTableViewController.h"
+#import "SWRevealViewController.h"
+
 
 @interface RestaurantsTableViewController () <UIViewControllerRestoration>
 
@@ -78,10 +80,27 @@
     [super viewDidLoad];
     [self loadData];
 
-	self.restorationIdentifier = @"RestaurantsTableView";
-	self.restorationClass = [self class];
 
-	
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+}
+
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.tableView forKey:@"tableView"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.tableView = [coder decodeObjectForKey:@"tableView"];
+    [super decodeRestorableStateWithCoder:coder];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,6 +118,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    if (_cityName == nil) {
+//        return [espoo count];
+//    }
     // Return the number of rows in the section.
     if ([_cityName isEqualToString:@"Espoo"]) {
         return [espoo count];
@@ -168,7 +190,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
+    if (_cityName == nil) {
+        cell.textLabel.text = [espoo objectAtIndex:indexPath.row];
 
+    }
     // Configure the cell...
     if ([_cityName isEqualToString:@"Espoo"]) {
         cell.textLabel.text = [espoo objectAtIndex:indexPath.row];
@@ -259,116 +284,144 @@
 
 - (void)loadData
 {
-    self.cityArray = self.json[@"cities"];
-
-    NSArray *espooArray = [self.json[@"cities"] valueForKey:@"Espoo"];
-    NSArray *finnairArray = [self.json[@"cities"] valueForKey:@"Helsinki-Vantaan lentoasema"];
-    NSArray *forssaArray = [self.json[@"cities"] valueForKey:@"Forssa"];
-    NSArray *helsinkiArray = [self.json[@"cities"] valueForKey:@"Helsinki"];
-    NSArray *hyvinkaaArray = [self.json[@"cities"] valueForKey:@"Hyvinkää"];
-    NSArray *ikaalinenArray = [self.json[@"cities"] valueForKey:@"Ikaalinen"];
-    NSArray *ilmajokiArray = [self.json[@"cities"] valueForKey:@"Ilmajoki"];
-    NSArray *jyvaskylaArray = [self.json[@"cities"] valueForKey:@"Jyväskylä"];
-    NSArray *kaarinaArray = [self.json[@"cities"] valueForKey:@"Kaarina"];
-    NSArray *kankaanpaaArray = [self.json[@"cities"] valueForKey:@"Kankaanpää"];
-    NSArray *kempeleArray = [self.json[@"cities"] valueForKey:@"Kempele"];
-    NSArray *kokkolaArray = [self.json[@"cities"] valueForKey:@"Kokkola"];
-    NSArray *kuortaneArray = [self.json[@"cities"] valueForKey:@"Kuortane"];
-    NSArray *kurikkaArray = [self.json[@"cities"] valueForKey:@"Kurikka"];
-    NSArray *lappeenrantaArray = [self.json[@"cities"] valueForKey:@"Lappeenranta"];
-    NSArray *nokiaArray = [self.json[@"cities"] valueForKey:@"Nokia"];
-    NSArray *ouluArray = [self.json[@"cities"] valueForKey:@"Oulu"];
-    NSArray *poriArray = [self.json[@"cities"] valueForKey:@"Pori"];
-    NSArray *porvooArray = [self.json[@"cities"] valueForKey:@"Porvoo"];
-    NSArray *raumaArray = [self.json[@"cities"] valueForKey:@"Rauma"];
-    NSArray *saloArray = [self.json[@"cities"] valueForKey:@"Salo"];
-    NSArray *seinajokiArray = [self.json[@"cities"] valueForKey:@"Seinäjoki"];
-    NSArray *tampereArray = [self.json[@"cities"] valueForKey:@"Tampere"];
-    NSArray *turkuArray = [self.json[@"cities"] valueForKey:@"Turku"];
-    NSArray *tuusulaArray = [self.json[@"cities"] valueForKey:@"Tuusula"];
-    NSArray *vantaaArray = [self.json[@"cities"] valueForKey:@"Vantaa"];
-    NSArray *varkausArray = [self.json[@"cities"] valueForKey:@"Varkaus"];
-
-    espoo = [espooArray valueForKey:@"title"];
-    espooUrls = [espooArray valueForKey:@"url"];
-	
-    finnair = [finnairArray valueForKey:@"title"];
-	finnairUrls = [finnairArray valueForKey:@"url"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-	forssa = [forssaArray valueForKey:@"title"];
-	forssaUrls = [forssaArray valueForKey:@"url"];
+    [[Factory sharedInstance] fetchDataInBackgroundWithCompletionHandler:^(BOOL success, NSDictionary *data, NSError *error) {
+        if (error) {
+            NSLog(@"error");
+            self.json = [userDefaults objectForKey:@"cities"];
+        } else {
+            self.json = data;
+            [userDefaults setObject:self.json forKey:@"cityJson"];
+            [userDefaults synchronize];
+        }
+        self.cityArray = self.json[@"cities"];
+        self.title = _cityName;
+        
+        
+        NSArray *espooArray = [self.json[@"cities"] valueForKey:@"Espoo"];
+        NSArray *finnairArray = [self.json[@"cities"] valueForKey:@"Helsinki-Vantaan lentoasema"];
+        NSArray *forssaArray = [self.json[@"cities"] valueForKey:@"Forssa"];
+        NSArray *helsinkiArray = [self.json[@"cities"] valueForKey:@"Helsinki"];
+        NSArray *hyvinkaaArray = [self.json[@"cities"] valueForKey:@"Hyvinkää"];
+        NSArray *ikaalinenArray = [self.json[@"cities"] valueForKey:@"Ikaalinen"];
+        NSArray *ilmajokiArray = [self.json[@"cities"] valueForKey:@"Ilmajoki"];
+        NSArray *jyvaskylaArray = [self.json[@"cities"] valueForKey:@"Jyväskylä"];
+        NSArray *kaarinaArray = [self.json[@"cities"] valueForKey:@"Kaarina"];
+        NSArray *kankaanpaaArray = [self.json[@"cities"] valueForKey:@"Kankaanpää"];
+        NSArray *kempeleArray = [self.json[@"cities"] valueForKey:@"Kempele"];
+        NSArray *kokkolaArray = [self.json[@"cities"] valueForKey:@"Kokkola"];
+        NSArray *kuortaneArray = [self.json[@"cities"] valueForKey:@"Kuortane"];
+        NSArray *kurikkaArray = [self.json[@"cities"] valueForKey:@"Kurikka"];
+        NSArray *lappeenrantaArray = [self.json[@"cities"] valueForKey:@"Lappeenranta"];
+        NSArray *nokiaArray = [self.json[@"cities"] valueForKey:@"Nokia"];
+        NSArray *ouluArray = [self.json[@"cities"] valueForKey:@"Oulu"];
+        NSArray *poriArray = [self.json[@"cities"] valueForKey:@"Pori"];
+        NSArray *porvooArray = [self.json[@"cities"] valueForKey:@"Porvoo"];
+        NSArray *raumaArray = [self.json[@"cities"] valueForKey:@"Rauma"];
+        NSArray *saloArray = [self.json[@"cities"] valueForKey:@"Salo"];
+        NSArray *seinajokiArray = [self.json[@"cities"] valueForKey:@"Seinäjoki"];
+        NSArray *tampereArray = [self.json[@"cities"] valueForKey:@"Tampere"];
+        NSArray *turkuArray = [self.json[@"cities"] valueForKey:@"Turku"];
+        NSArray *tuusulaArray = [self.json[@"cities"] valueForKey:@"Tuusula"];
+        NSArray *vantaaArray = [self.json[@"cities"] valueForKey:@"Vantaa"];
+        NSArray *varkausArray = [self.json[@"cities"] valueForKey:@"Varkaus"];
+        
+        espoo = [espooArray valueForKey:@"title"];
+        espooUrls = [espooArray valueForKey:@"url"];
+        
+        finnair = [finnairArray valueForKey:@"title"];
+        finnairUrls = [finnairArray valueForKey:@"url"];
+        
+        forssa = [forssaArray valueForKey:@"title"];
+        forssaUrls = [forssaArray valueForKey:@"url"];
+        
+        helsinki = [helsinkiArray valueForKey:@"title"];
+        helsinkiUrls = [helsinkiArray valueForKey:@"url"];
+        
+        hyvinkaa = [hyvinkaaArray valueForKey:@"title"];
+        hyvinkaaUrls = [hyvinkaaArray valueForKey:@"url"];
+        
+        ikaalinen = [ikaalinenArray valueForKey:@"title"];
+        ikaalinenUrls = [ikaalinenArray valueForKey:@"url"];
+        
+        ilmajoki = [ilmajokiArray valueForKey:@"title"];
+        ilmajokiUrls = [ilmajokiArray valueForKey:@"url"];
+        
+        jyvaskyla = [jyvaskylaArray valueForKey:@"title"];
+        jyvaskylaUrls = [jyvaskylaArray valueForKey:@"url"];
+        
+        kaarina = [kaarinaArray valueForKey:@"title"];
+        kaarinaUrls = [kaarinaArray valueForKey:@"url"];
+        
+        kankaanpaa = [kankaanpaaArray valueForKey:@"title"];
+        kankaanpaaUrls = [kankaanpaaArray valueForKey:@"url"];
+        
+        kempele = [kempeleArray valueForKey:@"title"];
+        kempeleUrls = [kempeleArray valueForKey:@"url"];
+        
+        kokkola = [kokkolaArray valueForKey:@"title"];
+        kokkolaUrls = [kokkolaArray valueForKey:@"url"];
+        
+        kuortane = [kuortaneArray valueForKey:@"title"];
+        kuortaneUrls = [kuortaneArray valueForKey:@"url"];
+        
+        kurikka = [kurikkaArray valueForKey:@"title"];
+        kurikkaUrls = [kurikkaArray valueForKey:@"url"];
+        
+        lappeenranta = [lappeenrantaArray valueForKey:@"title"];
+        lappeenrantaUrls = [lappeenrantaArray valueForKey:@"url"];
+        
+        nokia = [nokiaArray valueForKey:@"title"];
+        nokiaUrls = [nokiaArray valueForKey:@"url"];
+        
+        oulu = [ouluArray valueForKey:@"title"];
+        ouluUrls = [ouluArray valueForKey:@"url"];
+        
+        pori = [poriArray valueForKey:@"title"];
+        poriUrls = [poriArray valueForKey:@"url"];
+        
+        porvoo = [porvooArray valueForKey:@"title"];
+        porvooUrls = [porvooArray valueForKey:@"url"];
+        
+        rauma = [raumaArray valueForKey:@"title"];
+        raumaUrls = [raumaArray valueForKey:@"url"];
+        
+        salo = [saloArray valueForKey:@"title"];
+        saloUrls = [saloArray valueForKey:@"url"];
+        
+        seinajoki = [seinajokiArray valueForKey:@"title"];
+        seinajokiUrls = [seinajokiArray valueForKey:@"url"];
+        
+        tampere = [tampereArray valueForKey:@"title"];
+        tampereUrls = [tampereArray valueForKey:@"url"];
+        
+        turku = [turkuArray valueForKey:@"title"];
+        turkuUrls = [turkuArray valueForKey:@"url"];
+        
+        tuusula = [tuusulaArray valueForKey:@"title"];
+        tuusulaUrls = [tuusulaArray valueForKey:@"url"];
+        
+        vantaa = [vantaaArray valueForKey:@"title"];
+        vantaaUrls = [vantaaArray valueForKey:@"url"];
+        
+        varkaus = [varkausArray valueForKey:@"title"];
+        varkausUrls = [varkausArray valueForKey:@"url"];
 
-    helsinki = [helsinkiArray valueForKey:@"title"];
-    helsinkiUrls = [helsinkiArray valueForKey:@"url"];
+        NSArray *array = [self.json[@"cities"] allKeys];
+        if ([userDefaults objectForKey:@"cityName"]) {
+            self.cityName = [userDefaults objectForKey:@"cityName"];
+            NSLog(@"cityname should be %@", [userDefaults objectForKey:@"cityName"]);
 
-    hyvinkaa = [hyvinkaaArray valueForKey:@"title"];
-    hyvinkaaUrls = [hyvinkaaArray valueForKey:@"url"];
+        } else {
+            self.cityName = [[array sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:0];
 
-    ikaalinen = [ikaalinenArray valueForKey:@"title"];
-    ikaalinenUrls = [ikaalinenArray valueForKey:@"url"];
+        }
 
-    ilmajoki = [ilmajokiArray valueForKey:@"title"];
-    ilmajokiUrls = [ilmajokiArray valueForKey:@"url"];
+        [self.tableView reloadData];
+        
+    }];
 
-    jyvaskyla = [jyvaskylaArray valueForKey:@"title"];
-    jyvaskylaUrls = [jyvaskylaArray valueForKey:@"url"];
-
-    kaarina = [kaarinaArray valueForKey:@"title"];
-	kaarinaUrls = [kaarinaArray valueForKey:@"url"];
-    
-	kankaanpaa = [kankaanpaaArray valueForKey:@"title"];
-	kankaanpaaUrls = [kankaanpaaArray valueForKey:@"url"];
-
-    kempele = [kempeleArray valueForKey:@"title"];
-    kempeleUrls = [kempeleArray valueForKey:@"url"];
-
-    kokkola = [kokkolaArray valueForKey:@"title"];
-    kokkolaUrls = [kokkolaArray valueForKey:@"url"];
-
-    kuortane = [kuortaneArray valueForKey:@"title"];
-    kuortaneUrls = [kuortaneArray valueForKey:@"url"];
-
-    kurikka = [kurikkaArray valueForKey:@"title"];
-    kurikkaUrls = [kurikkaArray valueForKey:@"url"];
-
-    lappeenranta = [lappeenrantaArray valueForKey:@"title"];
-    lappeenrantaUrls = [lappeenrantaArray valueForKey:@"url"];
-
-    nokia = [nokiaArray valueForKey:@"title"];
-    nokiaUrls = [nokiaArray valueForKey:@"url"];
-
-    oulu = [ouluArray valueForKey:@"title"];
-    ouluUrls = [ouluArray valueForKey:@"url"];
-
-    pori = [poriArray valueForKey:@"title"];
-    poriUrls = [poriArray valueForKey:@"url"];
-
-    porvoo = [porvooArray valueForKey:@"title"];
-    porvooUrls = [porvooArray valueForKey:@"url"];
-
-    rauma = [raumaArray valueForKey:@"title"];
-    raumaUrls = [raumaArray valueForKey:@"url"];
-
-    salo = [saloArray valueForKey:@"title"];
-    saloUrls = [saloArray valueForKey:@"url"];
-
-    seinajoki = [seinajokiArray valueForKey:@"title"];
-    seinajokiUrls = [seinajokiArray valueForKey:@"url"];
-
-    tampere = [tampereArray valueForKey:@"title"];
-    tampereUrls = [tampereArray valueForKey:@"url"];
-
-    turku = [turkuArray valueForKey:@"title"];
-    turkuUrls = [turkuArray valueForKey:@"url"];
-
-    tuusula = [tuusulaArray valueForKey:@"title"];
-    tuusulaUrls = [tuusulaArray valueForKey:@"url"];
-
-    vantaa = [vantaaArray valueForKey:@"title"];
-    vantaaUrls = [vantaaArray valueForKey:@"url"];
-
-    varkaus = [varkausArray valueForKey:@"title"];
-    varkausUrls = [varkausArray valueForKey:@"url"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -458,11 +511,10 @@
 			destinationViewController.url = [varkausUrls objectAtIndex:indexPath.row];
 		}
 		
-		
-		
       destinationViewController.title = destinationViewController.restaurantName;
     }
 }
+
 +(UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
 {
     UIViewController * myViewController =
@@ -472,13 +524,6 @@
 	
     return myViewController;
 }
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    [super encodeRestorableStateWithCoder:coder];
-}
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    [super decodeRestorableStateWithCoder:coder];
-}
+
 
 @end

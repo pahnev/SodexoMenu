@@ -16,5 +16,6 @@
 @property(nonatomic, strong) NSArray *cityArray;
 
 @property (strong, nonatomic) NSString *cityName;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

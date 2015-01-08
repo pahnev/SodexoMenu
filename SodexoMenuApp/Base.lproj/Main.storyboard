@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cgD-On-0Wy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ydt-qT-EPv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -9,9 +9,9 @@
         <!--Sodexo Menu-->
         <scene sceneID="uhw-tr-0Q9">
             <objects>
-                <tableViewController storyboardIdentifier="ListViewControllerID" id="ALC-jX-YjR" customClass="MenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5YX-K0-eW0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <tableViewController storyboardIdentifier="CityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ALC-jX-YjR" customClass="MenuTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="CityTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5YX-K0-eW0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -32,7 +32,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Qid-6T-p89" kind="push" identifier="showRestaurants" id="tUg-kr-MRS"/>
+                                    <segue destination="gxW-ni-6yp" kind="custom" identifier="showRestaurants" customClass="SWRevealViewControllerSeguePushController" id="JZl-b2-Dhu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rtf-bf-vls" kind="push" id="cVv-fa-8b2"/>
+                                    <segue destination="rtf-bf-vls" kind="push" identifier="showAbout" id="cVv-fa-8b2"/>
                                 </connections>
                             </button>
                             <connections>
@@ -58,17 +58,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gxW-ni-6yp" kind="custom" identifier="backToRoot" customClass="SWRevealViewControllerSeguePushController" id="6WM-1E-Dta"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kv2-nT-uTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="-285"/>
+            <point key="canvasLocation" x="1409" y="-878"/>
         </scene>
         <!--Restaurants Table View Controller-->
         <scene sceneID="lyV-7L-RhM">
             <objects>
-                <tableViewController restorationIdentifier="RestaurantsTableView" id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RestaurantsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qid-6T-p89" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="RestaurantsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xWC-LZ-0fV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -99,6 +102,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WKG-04-RBy">
+                        <barButtonItem key="leftBarButtonItem" image="location" id="UbD-VM-6QE"/>
                         <barButtonItem key="rightBarButtonItem" id="eqU-9A-UXe">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="s82-tf-U2H">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>
@@ -107,7 +111,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rtf-bf-vls" kind="push" id="Sjt-aR-Guj"/>
+                                    <segue destination="rtf-bf-vls" kind="push" identifier="showAbout" id="Sjt-aR-Guj"/>
                                 </connections>
                             </button>
                             <connections>
@@ -115,17 +119,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sidebarButton" destination="UbD-VM-6QE" id="ots-63-nmh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvY-ZY-I9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="-285"/>
+            <point key="canvasLocation" x="1957" y="-285"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="nA7-ja-2sM">
             <objects>
-                <tableViewController restorationIdentifier="MenuDetailsView" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="rH8-gD-fgx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <tableViewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="MenuTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="rH8-gD-fgx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -199,7 +206,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rtf-bf-vls" kind="push" id="2l4-wJ-72l"/>
+                                    <segue destination="rtf-bf-vls" kind="push" identifier="showAbout" id="2l4-wJ-72l"/>
                                 </connections>
                             </button>
                             <connections>
@@ -210,23 +217,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trQ-NU-Teo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="-290"/>
+            <point key="canvasLocation" x="2356" y="-201"/>
         </scene>
         <!--About Sodexo Menu-->
         <scene sceneID="2YS-fW-8la">
             <objects>
-                <viewController id="rtf-bf-vls" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rtf-bf-vls" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UDQ-Xu-TEG"/>
                         <viewControllerLayoutGuide type="bottom" id="iOv-BZ-6bz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dhO-VQ-rpm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="AboutView" id="dhO-VQ-rpm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-M1-93r">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-M1-93r">
                                 <rect key="frame" x="16" y="8" width="47" height="155"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="kNN-Tx-GCo"/>
+                                </constraints>
                                 <string key="text">G
 L
 M
@@ -235,7 +245,7 @@ VL</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPu-Vs-G93">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPu-Vs-G93">
                                 <rect key="frame" x="71" y="8" width="240" height="155"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Gluten-free
@@ -246,9 +256,12 @@ Low-lactose</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-q1-xF7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-q1-xF7">
                                 <rect key="frame" x="16" y="171" width="288" height="145"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="dSA-Dv-99o"/>
+                                </constraints>
                                 <string key="text">If Sodexo closes a restaurant or opens a new one, you can tell us about it by sending a message to kirill.pahnev@gmail.com and the app will be updated asap.
 
 </string>
@@ -259,40 +272,78 @@ Low-lactose</string>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XEh-M1-93r" firstAttribute="top" secondItem="dhO-VQ-rpm" secondAttribute="topMargin" constant="8" id="1bp-2d-V0q"/>
+                            <constraint firstItem="d5Z-q1-xF7" firstAttribute="trailing" secondItem="dhO-VQ-rpm" secondAttribute="trailingMargin" id="77o-SH-wX2"/>
+                            <constraint firstItem="QPu-Vs-G93" firstAttribute="top" secondItem="XEh-M1-93r" secondAttribute="top" id="BY3-Fm-wPt"/>
+                            <constraint firstItem="XEh-M1-93r" firstAttribute="leading" secondItem="dhO-VQ-rpm" secondAttribute="leadingMargin" id="GkU-2t-BAt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QPu-Vs-G93" secondAttribute="trailing" constant="-7" id="Gyk-Dc-ne4"/>
+                            <constraint firstItem="d5Z-q1-xF7" firstAttribute="top" secondItem="QPu-Vs-G93" secondAttribute="bottom" constant="8" symbolic="YES" id="Nf7-Il-Cbk"/>
+                            <constraint firstItem="QPu-Vs-G93" firstAttribute="leading" secondItem="XEh-M1-93r" secondAttribute="trailing" constant="8" symbolic="YES" id="PFe-1L-zeG"/>
+                            <constraint firstItem="d5Z-q1-xF7" firstAttribute="leading" secondItem="XEh-M1-93r" secondAttribute="leading" id="abK-pp-RPa"/>
+                            <constraint firstItem="iOv-BZ-6bz" firstAttribute="top" secondItem="d5Z-q1-xF7" secondAttribute="bottom" constant="164" id="boQ-L3-mLQ"/>
+                            <constraint firstItem="d5Z-q1-xF7" firstAttribute="top" secondItem="XEh-M1-93r" secondAttribute="bottom" constant="8" symbolic="YES" id="l5j-tZ-6p3"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="About Sodexo Menu" id="M53-YL-dca"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-3T-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="-285"/>
+            <point key="canvasLocation" x="2872" y="-310"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="4aG-4C-Koj">
+            <objects>
+                <viewController storyboardIdentifier="RevealViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ydt-qT-EPv" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bMh-Sh-sSD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ja9-NB-Jd2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="RevealView" id="5EU-kX-hfC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="ALC-jX-YjR" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="y7D-BN-PxD"/>
+                        <segue destination="gxW-ni-6yp" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Zor-1G-uDi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rO4-Pf-hzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="-285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="mP9-Uy-Bg2">
+        <scene sceneID="mQ3-Nm-Vpb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cgD-On-0Wy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gxW-ni-6yp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="e1E-cq-Oh8">
+                    <navigationItem key="navigationItem" id="B65-bs-vHO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Akt-fM-JTm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ALC-jX-YjR" kind="relationship" relationship="rootViewController" id="glf-aJ-eej"/>
+                        <segue destination="Qid-6T-p89" kind="relationship" relationship="rootViewController" id="Hcg-vi-5aa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uwn-in-5dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7RQ-W9-BkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="-285"/>
+            <point key="canvasLocation" x="1425" y="-285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location" width="22" height="22"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="6WM-1E-Dta"/>
         <segue reference="cVv-fa-8b2"/>
     </inferredMetricsTieBreakers>
 </document>

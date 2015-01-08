@@ -30,6 +30,18 @@
     
 }
 
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.tableView forKey:@"tableView"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.tableView = [coder decodeObjectForKey:@"tableView"];
+    [super decodeRestorableStateWithCoder:coder];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -66,12 +78,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     if ([segue.identifier isEqualToString:@"showRestaurants"]) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
+        RestaurantsTableViewController *destinationViewController = (RestaurantsTableViewController *)[[segue destinationViewController] topViewController];
+
+//        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
         destinationViewController.title = destinationViewController.cityName;
         destinationViewController.json = self.cityJson;
+        [userDefaults setObject:[[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row] forKey:@"cityName"];
+        [userDefaults synchronize];
+
     }
 }
 

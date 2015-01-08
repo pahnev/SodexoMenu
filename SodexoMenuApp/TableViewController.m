@@ -102,7 +102,6 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 {
     self.url = _url;
     NSString *baseURL = [NSString stringWithFormat:@"http://www.sodexo.fi/ruokalistat/output/daily_json/%@/%@/fi", self.url, self.date];
-    NSLog(@"url %@", baseURL);
     AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
     
     __weak AFHTTPRequestOperationManager *weakManager = manager;
@@ -162,6 +161,22 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
 
     return dateString;
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.data forKey:@"data"];
+    [coder encodeObject:self.title forKey:@"title"];
+    NSLog(@"Encoding");
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.data = [coder decodeObjectForKey:@"data"];
+    self.title = [coder decodeObjectForKey:@"title"];
+    NSLog(@"Decoding");
+    [super decodeRestorableStateWithCoder:coder];
 }
 
 @end
