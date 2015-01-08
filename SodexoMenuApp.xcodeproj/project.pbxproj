@@ -23,12 +23,12 @@
 		ED412C2819B63E1D0030D596 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED412C2719B63E1D0030D596 /* SystemConfiguration.framework */; };
 		ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */; };
 		ED8784D31A5C868400F8F7D7 /* cityData.json in Resources */ = {isa = PBXBuildFile; fileRef = ED8784D21A5C868400F8F7D7 /* cityData.json */; };
-		ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */; };
+		ED8BB17919B0EF4C005189E3 /* CitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8BB17819B0EF4C005189E3 /* CitiesTableViewController.m */; };
 		ED95BE0D19D4964300051B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED95BE0F19D4964300051B81 /* Main.storyboard */; };
 		ED95BE1319D4974300051B81 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED95BE1519D4974300051B81 /* Localizable.strings */; };
 		ED95BE1A19D49A4500051B81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED95BE1C19D49A4500051B81 /* InfoPlist.strings */; };
 		ED99EED71939FDD60070E56F /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED61939FDD60070E56F /* SessionManager.m */; };
-		ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* TableViewController.m */; };
+		ED99EEDA1939FF670070E56F /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED99EED91939FF670070E56F /* MenuTableViewController.m */; };
 		EDD6C8741A12D6C40047C2D9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */; };
 		EDD6C8751A12D6C40047C2D9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD6C8731A12D6C40047C2D9 /* Fabric.framework */; };
 /* End PBXBuildFile section */
@@ -69,8 +69,8 @@
 		ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
 		ED70518019D5044A00B5CEAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED8784D21A5C868400F8F7D7 /* cityData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityData.json; sourceTree = "<group>"; };
-		ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
-		ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		ED8BB17719B0EF4C005189E3 /* CitiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesTableViewController.h; sourceTree = "<group>"; };
+		ED8BB17819B0EF4C005189E3 /* CitiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesTableViewController.m; sourceTree = "<group>"; };
 		ED95BE1419D4974300051B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED95BE1719D4975B00051B81 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED95BE1B19D49A4500051B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 		ED95BE2119D49B6000051B81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		ED99EED51939FDD60070E56F /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
 		ED99EED61939FDD60070E56F /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
-		ED99EED81939FF670070E56F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		ED99EED91939FF670070E56F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		ED99EED81939FF670070E56F /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		ED99EED91939FF670070E56F /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		EDD6C8721A12D6C40047C2D9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		EDD6C8731A12D6C40047C2D9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FE312748A8EBEDF424D07419 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,12 +174,12 @@
 				ED3D97CA1922896A00C3F60D /* AppDelegate.h */,
 				ED3D97CB1922896A00C3F60D /* AppDelegate.m */,
 				ED95BE0F19D4964300051B81 /* Main.storyboard */,
-				ED8BB17719B0EF4C005189E3 /* MenuTableViewController.h */,
-				ED8BB17819B0EF4C005189E3 /* MenuTableViewController.m */,
+				ED8BB17719B0EF4C005189E3 /* CitiesTableViewController.h */,
+				ED8BB17819B0EF4C005189E3 /* CitiesTableViewController.m */,
 				ED46CB1A19B5074B0002AE32 /* RestaurantsTableViewController.h */,
 				ED46CB1B19B5074B0002AE32 /* RestaurantsTableViewController.m */,
-				ED99EED81939FF670070E56F /* TableViewController.h */,
-				ED99EED91939FF670070E56F /* TableViewController.m */,
+				ED99EED81939FF670070E56F /* MenuTableViewController.h */,
+				ED99EED91939FF670070E56F /* MenuTableViewController.m */,
 				ED8784D21A5C868400F8F7D7 /* cityData.json */,
 				ED99EEE2193A14120070E56F /* Model */,
 				ED3D97D91922896A00C3F60D /* Images.xcassets */,
@@ -398,8 +398,8 @@
 				ED99EED71939FDD60070E56F /* SessionManager.m in Sources */,
 				ED46CB1C19B5074B0002AE32 /* RestaurantsTableViewController.m in Sources */,
 				ED3D97C81922896A00C3F60D /* main.m in Sources */,
-				ED99EEDA1939FF670070E56F /* TableViewController.m in Sources */,
-				ED8BB17919B0EF4C005189E3 /* MenuTableViewController.m in Sources */,
+				ED99EEDA1939FF670070E56F /* MenuTableViewController.m in Sources */,
+				ED8BB17919B0EF4C005189E3 /* CitiesTableViewController.m in Sources */,
 				ED2521AA193B8772001E7AD4 /* Factory.m in Sources */,
 				ED0335A71A5D8FF800193A65 /* DFDateFormatterFactory.m in Sources */,
 			);

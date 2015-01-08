@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewController.h"
+#import "MenuTableViewController.h"
 #import "Factory.h"
 
 @interface RestaurantsTableViewController : UITableViewController

@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 
 
-@interface RestaurantsTableViewController () <UIViewControllerRestoration>
+@interface RestaurantsTableViewController ()
 
 @end
 
@@ -79,9 +79,8 @@
 {
     [super viewDidLoad];
     [self loadData];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
 
-
-    
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -118,9 +117,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (_cityName == nil) {
-//        return [espoo count];
-//    }
     // Return the number of rows in the section.
     if ([_cityName isEqualToString:@"Espoo"]) {
         return [espoo count];
@@ -190,10 +186,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
-    if (_cityName == nil) {
-        cell.textLabel.text = [espoo objectAtIndex:indexPath.row];
-
-    }
     // Configure the cell...
     if ([_cityName isEqualToString:@"Espoo"]) {
         cell.textLabel.text = [espoo objectAtIndex:indexPath.row];
@@ -414,7 +406,7 @@
             NSLog(@"cityname should be %@", [userDefaults objectForKey:@"cityName"]);
 
         } else {
-            self.cityName = [[array sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:0];
+            self.cityName = [array sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)][0];
 
         }
 
@@ -428,7 +420,7 @@
 {
     if ([segue.identifier isEqualToString:@"showMenu"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        TableViewController *destinationViewController = segue.destinationViewController;
+        MenuTableViewController *destinationViewController = segue.destinationViewController;
 		if ([_cityName isEqualToString:@"Espoo"]) {
 			destinationViewController.url = [espooUrls objectAtIndex:indexPath.row];
 			
@@ -513,16 +505,6 @@
 		
       destinationViewController.title = destinationViewController.restaurantName;
     }
-}
-
-+(UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
-{
-    UIViewController * myViewController =
-	[[TableViewController alloc]
-	 initWithNibName:@"RestaurantsTableViewControllerViewController"
-	 bundle:nil];
-	
-    return myViewController;
 }
 
 

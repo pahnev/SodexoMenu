@@ -9,7 +9,7 @@
         <!--Sodexo Menu-->
         <scene sceneID="uhw-tr-0Q9">
             <objects>
-                <tableViewController storyboardIdentifier="CityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ALC-jX-YjR" customClass="MenuTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ALC-jX-YjR" customClass="CitiesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="CityTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5YX-K0-eW0">
                         <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kv2-nT-uTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="-878"/>
+            <point key="canvasLocation" x="1425" y="-907"/>
         </scene>
         <!--Restaurants Table View Controller-->
         <scene sceneID="lyV-7L-RhM">
@@ -125,12 +125,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvY-ZY-I9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="-285"/>
+            <point key="canvasLocation" x="1798" y="-285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="nA7-ja-2sM">
             <objects>
-                <tableViewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BcG-7q-MpR" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BcG-7q-MpR" customClass="MenuTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="MenuTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="rH8-gD-fgx">
                         <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +217,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trQ-NU-Teo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-201"/>
+            <point key="canvasLocation" x="2169" y="-285"/>
         </scene>
         <!--About Sodexo Menu-->
         <scene sceneID="2YS-fW-8la">
@@ -290,7 +290,7 @@ Low-lactose</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-3T-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872" y="-310"/>
+            <point key="canvasLocation" x="2517" y="-285"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="4aG-4C-Koj">
@@ -312,7 +312,7 @@ Low-lactose</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rO4-Pf-hzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-285"/>
+            <point key="canvasLocation" x="998" y="-285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mQ3-Nm-Vpb">
@@ -343,7 +343,7 @@ Low-lactose</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6WM-1E-Dta"/>
+        <segue reference="Zor-1G-uDi"/>
         <segue reference="cVv-fa-8b2"/>
     </inferredMetricsTieBreakers>
 </document>
