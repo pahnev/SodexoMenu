@@ -25,6 +25,8 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self setupFeedbackMe];
+
     self.navigationController.navigationBar.translucent = NO;
 
     self.date = [self currentDate];
@@ -134,6 +136,8 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
             }
             
             [self.tableView reloadData];
+//            [LBFeedbackMe eventFired:@"DATA_LOADED"];
+
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -161,6 +165,16 @@ static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruok
 
 
     return dateString;
+}
+
+- (void) setupFeedbackMe {
+    [LBFeedbackMe setupWithAppStoreId:@"id916274230" openFeedbackViewBlock:^{
+        UIViewController *actualViewController; //Get current view controller from AppDelegate or other place
+        UIViewController *feedbackViewController = [UIViewController new]; //Instantiate your custom feedback view controller
+        [actualViewController presentViewController:feedbackViewController animated:true completion:nil];
+    }];
+    [LBFeedbackMe waitForEvent:@"DATA_LOADED" times:@1];
+
 }
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder

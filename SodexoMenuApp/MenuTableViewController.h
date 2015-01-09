@@ -13,6 +13,7 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "DFDateFormatterFactory.h"
 #import "Factory.h"
+#import <LBFeedbackMe.h>
 
 @interface MenuTableViewController : UITableViewController
 
