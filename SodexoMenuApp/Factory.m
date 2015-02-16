@@ -5,11 +5,22 @@
 //  Created by Kirill Pahnev on 1.6.2014.
 //  Copyright (c) 2014 Kirill Pahnev. All rights reserved.
 //
-
+//#import "MainViewController.h"
 #import "Factory.h"
-#import <AFHTTPRequestOperationManager.h>
 
 @implementation Factory
+
+
+//+(instancetype) sharedClient
+//{
+//	static Factory *_sharedClient = nil;
+//	static dispatch_once_t onceToken;
+//	dispatch_once(&onceToken, ^{
+//		_sharedClient = [[Factory alloc] init];
+//		//NSLog(@"%@", _sharedClient);
+//	});
+//	return _sharedClient;
+//}
 
 + (Factory *) sharedInstance
 {
@@ -28,17 +39,16 @@
     AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
     
     __weak AFHTTPRequestOperationManager *weakManager = manager;
-//    weakManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    weakManager.responseSerializer = [AFJSONResponseSerializer serializer];
     weakManager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
 
+    
     NSOperationQueue *operationQueue = manager.operationQueue;
     [weakManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         if (status ==  AFNetworkReachabilityStatusReachableViaWWAN || status == AFNetworkReachabilityStatusReachableViaWiFi) {
             NSLog(@"internet!");
-            [weakManager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
-            [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
-
+            [weakManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringCacheData];
             [operationQueue setSuspended:NO];
             
             [manager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -56,8 +66,7 @@
             
         } else if (status == AFNetworkReachabilityStatusNotReachable) {
             NSLog(@"no internet");
-            [weakManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringCacheData];
-            [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
+            [weakManager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
             [operationQueue setSuspended:YES];
             
         }
@@ -65,7 +74,6 @@
     }];
     
     [weakManager.reachabilityManager startMonitoring];
-    [manager.reachabilityManager startMonitoring];
     
     
     [weakManager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -83,3 +91,4 @@
 }
 
 @end
+

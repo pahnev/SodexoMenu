@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewController.h"
+#import "MenuTableViewController.h"
 #import "Factory.h"
 
 @interface RestaurantsTableViewController : UITableViewController
@@ -16,5 +16,6 @@
 @property(nonatomic, strong) NSArray *cityArray;
 
 @property (strong, nonatomic) NSString *cityName;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

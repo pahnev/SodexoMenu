@@ -1,15 +1,27 @@
 //
-//  MenuTableViewController.h
-//  SodexoMenuApp
+//  TableViewController.h
 //
-//  Created by Kirill Pahnev on 29.8.2014.
-//  Copyright (c) 2014 Kirill Pahnev. All rights reserved.
+//
+//  Created by Kirill Pahnev on 31.5.2014.
+//
 //
 
 #import <UIKit/UIKit.h>
-#import "RestaurantsTableViewController.h"
+#import "SessionManager.h"
+#import "AFNetworking.h"
+#import "CitiesTableViewController.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "DFDateFormatterFactory.h"
 #import "Factory.h"
+#import <LBFeedbackMe.h>
 
 @interface MenuTableViewController : UITableViewController
+
+@property(strong, nonatomic) NSArray *cities;
+@property(strong, nonatomic) NSArray *url;
+@property(strong, nonatomic) NSString *restaurantName;
+
+@property(strong, nonatomic) NSURLSessionDataTask *task;
+@property(nonatomic)AFHTTPRequestOperation *operation;
 
 @end

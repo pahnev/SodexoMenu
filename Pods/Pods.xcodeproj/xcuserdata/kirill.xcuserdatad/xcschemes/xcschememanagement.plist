@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FeedbackMe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FeedbackMe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>067ECDB06ED74FD59EE5DAB5</key>
+		<key>324D7DD69C7A819799452A70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BE86D946D6D41A58D1DFA69</key>
+		<key>4F7996809E3046E48DAA4D67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84249EE30BBC1FD2F2547227</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>849DF20D44DA59D4DF6C897E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B11DA4558A681E881AC68909</key>
 		<dict>
 			<key>primary</key>
 			<true/>

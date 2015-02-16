@@ -1,17 +1,22 @@
 //
-//  MenuTableViewController.m
-//  SodexoMenuApp
+//  TableViewController.m
 //
-//  Created by Kirill Pahnev on 29.8.2014.
-//  Copyright (c) 2014 Kirill Pahnev. All rights reserved.
+//
+//  Created by Kirill Pahnev on 31.5.2014.
+//
 //
 
 #import "MenuTableViewController.h"
+static NSString *const SessionManagerBaseUrlString = @"http://www.sodexo.fi/ruokalistat/output/daily_json/";
 
-@interface MenuTableViewController ()
+@interface MenuTableViewController () {
+    NSString *price;
+}
 
-@property(nonatomic, strong) NSDictionary *cityJson;
-@property(nonatomic, strong) NSArray *cityArray;
+@property(strong, nonatomic) NSArray *data;
+@property(strong, nonatomic) NSArray *locationName;
+@property(strong, nonatomic) NSString *date;
+@property(nonatomic, retain) NSDateFormatter *formatter;
 
 @end
 
@@ -20,14 +25,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
+//    [self setupFeedbackMe];
 
-    [self factoryLoad];
-    if (![self.cityArray count] == 0) {
-        self.navigationItem.leftBarButtonItem = nil;
+    self.navigationController.navigationBar.translucent = NO;
 
-    }
-    
+    self.date = [self currentDate];
+    //self.date = @"2014/09/18";
+    NSDictionary *size = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:16.0]};
+
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    //self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.date];
+    [self downloadMenu];
+
+    [self.navigationController.navigationBar
+        setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,52 +58,139 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.cityArray count];
+    return [self.data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"detailCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
 
     // Configure the cell...
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *data = self.data[indexPath.row];
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
 
-    // First sort the array alphabetically and then put each string *city
-    NSString *city = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
+    NSString *myLanguage = [NSLocale preferredLanguages][0];
+    if ([myLanguage isEqualToString:@"en"]) {
+        titleLabel.text = data[@"title_en"];
+        if (data[@"title_en"] == 0) {
+            titleLabel.text = data[@"title_fi"];
+        }
 
-    cell.textLabel.text = city;
+    } else {
+        titleLabel.text = data[@"title_fi"];
+    }
+
+    UILabel *categoryNameLabel = (UILabel *)[cell viewWithTag:101];
+    categoryNameLabel.text = data[@"category"];
+    UILabel *propertyNameLabel = (UILabel *)[cell viewWithTag:102];
+    propertyNameLabel.text = data[@"properties"];
+    UILabel *PriceNameLabel = (UILabel *)[cell viewWithTag:103];
+
+    price = data[@"price"];
+    price = [price stringByReplacingOccurrencesOfString:@"/" withString:@"€"];
+    price = [price stringByAppendingString:@" €"];
+    PriceNameLabel.text = price;
 
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Network methods
+- (void)downloadMenu
 {
-    if ([segue.identifier isEqualToString:@"showRestaurants"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
-        destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
-        destinationViewController.title = destinationViewController.cityName;
-        destinationViewController.json = self.cityJson;
-    }
-}
+    self.url = _url;
+    NSString *baseURL = [NSString stringWithFormat:@"http://www.sodexo.fi/ruokalistat/output/daily_json/%@/%@/fi", self.url, self.date];
+    AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
+    
+    __weak AFHTTPRequestOperationManager *weakManager = manager;
+    weakManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
+    
+    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.navigationItem.titleView = aiView;
+    [aiView startAnimating];
 
-- (void)factoryLoad
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [manager GET:baseURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.navigationItem.titleView = nil;
+        [aiView stopAnimating];
 
-    [[Factory sharedInstance] fetchDataInBackgroundWithCompletionHandler:^(BOOL success, NSDictionary *data, NSError *error) {
-        if (error) {
-            NSLog(@"error");
-            self.cityJson = [userDefaults objectForKey:@"cityJson"];
-        } else {
-            self.cityJson = data;
-            [userDefaults setObject:self.cityJson forKey:@"cityJson"];
-            [userDefaults synchronize];
+        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            
+            if ([[responseObject objectForKey:@"courses"] count] == 0) {
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no!", nil)
+                                                             message:NSLocalizedString(@"There is no menu today.", nil)
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+                [av show];
+                
+            } else {
+                self.data = [responseObject objectForKey:@"courses"];
+                self.title = responseObject[@"meta"][@"ref_title"];
+            }
+            
+            [self.tableView reloadData];
+//            [LBFeedbackMe eventFired:@"DATA_LOADED"];
+
         }
-        self.cityArray = [self.cityJson[@"cities"] allKeys];
-        [self.tableView reloadData];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        NSString *errorString = [NSString stringWithFormat:@"%@", [error localizedDescription]];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oh no! Something went wrong!", nil)
+                                                     message:NSLocalizedString(errorString, nil)
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+
+        [aiView stopAnimating];
 
     }];
+}
 
+#pragma mark - Helper methods
+- (NSString *)currentDate
+{
+    NSDate *currentDate = [NSDate date];
+    self.formatter = [[DFDateFormatterFactory sharedFactory] dateFormatterWithFormat:@"YYYY/MM/dd"];
+
+    NSString *dateString = [self.formatter stringFromDate:currentDate];
+
+
+    return dateString;
+}
+
+- (void) setupFeedbackMe {
+    [LBFeedbackMe setupWithAppStoreId:@"id916274230" openFeedbackViewBlock:^{
+        UIViewController *actualViewController; //Get current view controller from AppDelegate or other place
+        UIViewController *feedbackViewController = [UIViewController new]; //Instantiate your custom feedback view controller
+        [actualViewController presentViewController:feedbackViewController animated:true completion:nil];
+    }];
+    [LBFeedbackMe waitForEvent:@"DATA_LOADED" times:@1];
+
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.data forKey:@"data"];
+    [coder encodeObject:self.title forKey:@"title"];
+    NSLog(@"Encoding");
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.data = [coder decodeObjectForKey:@"data"];
+    self.title = [coder decodeObjectForKey:@"title"];
+    NSLog(@"Decoding");
+    [super decodeRestorableStateWithCoder:coder];
 }
 
 @end
