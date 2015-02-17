@@ -88,7 +88,7 @@
 //        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
         destinationViewController.title = destinationViewController.cityName;
-        destinationViewController.json = self.cityJson;
+        destinationViewController.jsonDataDictionary = self.cityJson;
         [userDefaults setObject:[[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row] forKey:@"cityName"];
         [userDefaults synchronize];
 

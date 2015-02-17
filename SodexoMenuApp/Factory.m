@@ -10,18 +10,6 @@
 
 @implementation Factory
 
-
-//+(instancetype) sharedClient
-//{
-//	static Factory *_sharedClient = nil;
-//	static dispatch_once_t onceToken;
-//	dispatch_once(&onceToken, ^{
-//		_sharedClient = [[Factory alloc] init];
-//		//NSLog(@"%@", _sharedClient);
-//	});
-//	return _sharedClient;
-//}
-
 + (Factory *) sharedInstance
 {
     static Factory *_sharedInstance = nil;
@@ -35,6 +23,7 @@
 
 -(void)fetchDataInBackgroundWithCompletionHandler: (void(^)(BOOL success, NSDictionary *data, NSError *error)) block
 {
+#warning Make this work properly
     NSString * baseURL = @"https://raw.githubusercontent.com/pahnev/SodexoMenu/master/SodexoMenuApp/cityData.json";
     AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc] init];
     
@@ -44,6 +33,7 @@
 
     
     NSOperationQueue *operationQueue = manager.operationQueue;
+    [weakManager.reachabilityManager startMonitoring];
     [weakManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         if (status ==  AFNetworkReachabilityStatusReachableViaWWAN || status == AFNetworkReachabilityStatusReachableViaWiFi) {
