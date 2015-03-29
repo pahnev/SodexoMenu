@@ -10,7 +10,7 @@
 
 @interface CitiesTableViewController ()
 
-@property(nonatomic, strong) NSDictionary *cityJson;
+@property(nonatomic, strong) NSDictionary *jsonDictionary;
 @property(nonatomic, strong) NSArray *cityArray;
 
 @end
@@ -69,9 +69,10 @@
     // Configure the cell...
 
     // First sort the array alphabetically and then put each string *city
-    NSString *city = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
+//    NSString *city = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
 
-    cell.textLabel.text = city;
+    cell.textLabel.text =
+    [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
 
     return cell;
 }
@@ -88,7 +89,7 @@
 //        RestaurantsTableViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.cityName = [[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row];
         destinationViewController.title = destinationViewController.cityName;
-        destinationViewController.json = self.cityJson;
+        destinationViewController.jsonDataDictionary = self.jsonDictionary;
         [userDefaults setObject:[[self.cityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.row] forKey:@"cityName"];
         [userDefaults synchronize];
 
@@ -102,13 +103,13 @@
     [[Factory sharedInstance] fetchDataInBackgroundWithCompletionHandler:^(BOOL success, NSDictionary *data, NSError *error) {
         if (error) {
             NSLog(@"error");
-            self.cityJson = [userDefaults objectForKey:@"cityJson"];
+            self.jsonDictionary = [userDefaults objectForKey:@"cityJson"];
         } else {
-            self.cityJson = data;
-            [userDefaults setObject:self.cityJson forKey:@"cityJson"];
+            self.jsonDictionary = data;
+            [userDefaults setObject:self.jsonDictionary forKey:@"cityJson"];
             [userDefaults synchronize];
         }
-        self.cityArray = [self.cityJson[@"cities"] allKeys];
+        self.cityArray = [self.jsonDictionary[@"cities"] allKeys];
         [self.tableView reloadData];
 
     }];

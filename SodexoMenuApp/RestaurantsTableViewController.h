@@ -12,7 +12,7 @@
 
 @interface RestaurantsTableViewController : UITableViewController
 
-@property(nonatomic, strong) NSDictionary *json;
+@property(nonatomic, strong) NSDictionary *jsonDataDictionary;
 @property(nonatomic, strong) NSArray *cityArray;
 
 @property (strong, nonatomic) NSString *cityName;
