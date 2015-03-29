@@ -228,11 +228,11 @@
                         <viewControllerLayoutGuide type="bottom" id="iOv-BZ-6bz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="AboutView" id="dhO-VQ-rpm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-M1-93r">
-                                <rect key="frame" x="16" y="8" width="47" height="211"/>
+                                <rect key="frame" x="16" y="8" width="47" height="129"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="kNN-Tx-GCo"/>
@@ -246,7 +246,7 @@ VL</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPu-Vs-G93">
-                                <rect key="frame" x="71" y="8" width="520" height="211"/>
+                                <rect key="frame" x="71" y="8" width="240" height="129"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Gluten-free
 Lactose-free
@@ -257,7 +257,7 @@ Low-lactose</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-q1-xF7">
-                                <rect key="frame" x="16" y="227" width="568" height="145"/>
+                                <rect key="frame" x="16" y="145" width="288" height="145"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="dSA-Dv-99o"/>
@@ -281,16 +281,17 @@ Low-lactose</string>
                             <constraint firstItem="d5Z-q1-xF7" firstAttribute="top" secondItem="QPu-Vs-G93" secondAttribute="bottom" constant="8" symbolic="YES" id="Nf7-Il-Cbk"/>
                             <constraint firstItem="QPu-Vs-G93" firstAttribute="leading" secondItem="XEh-M1-93r" secondAttribute="trailing" constant="8" symbolic="YES" id="PFe-1L-zeG"/>
                             <constraint firstItem="d5Z-q1-xF7" firstAttribute="leading" secondItem="XEh-M1-93r" secondAttribute="leading" id="abK-pp-RPa"/>
-                            <constraint firstItem="iOv-BZ-6bz" firstAttribute="top" secondItem="d5Z-q1-xF7" secondAttribute="bottom" constant="164" id="boQ-L3-mLQ"/>
+                            <constraint firstItem="iOv-BZ-6bz" firstAttribute="top" secondItem="d5Z-q1-xF7" secondAttribute="bottom" constant="126" id="boQ-L3-mLQ"/>
                             <constraint firstItem="d5Z-q1-xF7" firstAttribute="top" secondItem="XEh-M1-93r" secondAttribute="bottom" constant="8" symbolic="YES" id="l5j-tZ-6p3"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="About Sodexo Menu" id="M53-YL-dca"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-3T-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4719.375" y="-356.25"/>
+            <point key="canvasLocation" x="4719" y="-357"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="4aG-4C-Koj">

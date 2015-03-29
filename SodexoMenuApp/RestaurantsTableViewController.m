@@ -126,7 +126,7 @@
         self.title = _cityName;
         
         NSArray *array = [self.jsonDataDictionary[@"cities"] allKeys];
-        NSLog(@"%@", array);
+//        NSLog(@"%@", array);
         if ([userDefaults objectForKey:@"cityName"]) {
             self.cityName = [userDefaults objectForKey:@"cityName"];
             NSLog(@"cityname should be %@", [userDefaults objectForKey:@"cityName"]);
