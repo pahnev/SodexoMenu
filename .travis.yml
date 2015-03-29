@@ -1,0 +1,4 @@
+language: objective-c
+script:
+  - xctool -workspace SodexoMenuApp.xcworkspace -scheme SodexoMenuApp -sdk iphonesimulator
+  - xctool test -workspace SodexoMenuApp.xcworkspace -scheme SodexoMenuAppTests -sdk iphonesimulator
