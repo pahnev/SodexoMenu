@@ -21,11 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
 	<string>32</string>
-=======
-	<string>21</string>
->>>>>>> 4523961f5a55c3c9e87482ed976c2c099daab5b3
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
